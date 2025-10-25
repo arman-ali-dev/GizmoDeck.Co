@@ -4,8 +4,11 @@ import com.example.ecommerce.exceptions.address.AddressNotFoundException;
 import com.example.ecommerce.exceptions.address.InvalidAddressException;
 import com.example.ecommerce.exceptions.authentication.WrongOtpException;
 import com.example.ecommerce.exceptions.cart.CartAlreadyExistsException;
+import com.example.ecommerce.exceptions.cart.CartItemNotFoundException;
+import com.example.ecommerce.exceptions.cart.CartNotFoundException;
 import com.example.ecommerce.exceptions.category.CategoryNotFoundException;
 import com.example.ecommerce.exceptions.product.ProductNotFoundException;
+import com.example.ecommerce.exceptions.review.ReviewNotFoundException;
 import com.example.ecommerce.exceptions.seller.SellerAlreadyExistsException;
 import com.example.ecommerce.exceptions.seller.SellerNotFoundException;
 import com.example.ecommerce.exceptions.user.UserAlreadyExistsException;
@@ -58,6 +61,17 @@ public class GlobalExceptionHandler {
         return buildErrorResponse("Cart Already Exists", HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
+    @ExceptionHandler(CartItemNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleCartItemNotFound(CartItemNotFoundException ex) {
+        return buildErrorResponse("Cart Item Not Found!", HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    @ExceptionHandler(CartNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleCartNotFound(CartNotFoundException ex) {
+        return buildErrorResponse("Cart Not Found!", HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+
     @ExceptionHandler(SellerNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleSellerNotFound(SellerNotFoundException ex) {
         return buildErrorResponse("Seller Not Found", HttpStatus.NOT_FOUND, ex.getMessage());
@@ -82,6 +96,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleVariantNotFound(VariantNotFoundException ex) {
         return buildErrorResponse("Variant Not Found", HttpStatus.NOT_FOUND, ex.getMessage());
     }
+
+    @ExceptionHandler(ReviewNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleReviewNotFound(ReviewNotFoundException ex) {
+        return buildErrorResponse("Review Not Found", HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
 
     @ExceptionHandler(WrongOtpException.class)
     public ResponseEntity<Map<String, Object>> handleWrongOtp(WrongOtpException ex) {

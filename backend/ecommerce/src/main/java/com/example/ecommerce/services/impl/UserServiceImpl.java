@@ -6,6 +6,8 @@ import com.example.ecommerce.models.User;
 import com.example.ecommerce.repositories.UserRepository;
 import com.example.ecommerce.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,25 @@ public class UserServiceImpl implements UserService {
 
         if (user == null) {
             throw new UserNotFoundException("User not found with this email: " + email);
+        }
+
+        return user;
+    }
+
+    @Override
+    public User getLoggedInUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new UserNotFoundException("No authenticated user found");
+        }
+
+        String username = authentication.getName();
+        User user = userRepository.findByEmail(username);
+
+        if (user == null) {
+            throw new UserNotFoundException("User not found with email: " + username);
         }
 
         return user;

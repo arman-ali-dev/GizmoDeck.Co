@@ -28,7 +28,7 @@ public class Cart {
 
     private Long subTotal;
 
-    private Long totalAmount;
+    private Long totalPrice;
 
     private Long discount;
 

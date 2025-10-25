@@ -8,6 +8,8 @@ import java.util.Optional;
 public interface UserService {
     User getUserProfile(String jwt);
 
+    User getLoggedInUser();
+
     User updateProfile(Long userId, User user);
 
     List<User> getAllUsers();
