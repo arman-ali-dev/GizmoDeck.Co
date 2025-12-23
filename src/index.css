@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Imprima&family=Lalezar&family=Lexend:wght@100..900&family=Lily+Script+One&family=Poller+One&display=swap");
+@import "tailwindcss";
+
+* {
+  font-family: "Jost", sans-serif;
+}
+
+:root {
+  --primary-color: #000;
+}
+
+.categoryHeading {
+  font-family: "Lalezar", sans-serif;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: calc(200%); /* Because we duplicated the list */
+  animation: marquee 25s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.card-images-wrapper {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator-button {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indicator-button.active {
+  background-color: rgb(255, 255, 255, 1);
+}
+
+.thin-line-through {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.group-hover-effect {
+  padding: 10px 4px;
+  transition: transform 0.3s;
+}
+
+.group:hover .group-hover-effect {
+  transform: translateX(0.1rem);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+}
+
+.activeColor {
+  position: relative;
+}
+
+.activeColor::before {
+  background-color: #000;
+  height: 3px;
+  border-radius: 12px;
+  width: 65%;
+  content: "";
+  bottom: -10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 20px !important;
+  height: 8px !important;
+  border-radius: 6px !important;
+  background: #ffffff !important;
+}
+
+/* Swiper navigation arrows - Circle style */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #ffffffb0 !important;
+  color: #000 !important;
+  border-radius: 50%;
+  display: none !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-next::before,
+.swiper-button-prev::after {
+  content: "" !important;
+}
