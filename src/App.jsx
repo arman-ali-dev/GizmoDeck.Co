@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./customer/components/navbar/NavBar";
 import Home from "./customer/pages/Home/Home";
 import Footer from "./customer/components/Footer/Footer";
@@ -25,9 +25,24 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./customer/pages/Not Found/NotFound";
 import SubNavbar from "./customer/components/navbar/SubNavbar";
 import Header from "./customer/components/Header/Header";
+import PageLoader from "./components/PageLoader";
 
 const App = () => {
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    document.body.style.overflow = "hidden";
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+      document.body.style.overflow = "auto";
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   const hideHeaderPaths = [
     "/login",
@@ -63,6 +78,7 @@ const App = () => {
 
   return (
     <>
+      {loading && <PageLoader />}
       <ScrollToTop />
       {!hideHeader && (
         <>
