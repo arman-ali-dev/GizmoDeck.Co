@@ -219,7 +219,6 @@ const AddProduct = () => {
     <div>
       <form onSubmit={formik.handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          {/* TITLE */}
           <div>
             <TextField
               fullWidth
@@ -233,7 +232,6 @@ const AddProduct = () => {
             />
           </div>
 
-          {/* DESCRIPTION */}
           <div>
             <TextField
               fullWidth
@@ -253,7 +251,6 @@ const AddProduct = () => {
             />
           </div>
 
-          {/* CATEGORY BOXES */}
           <div>
             <InputLabel id="category-label" className="mb-1">
               Category *
@@ -288,7 +285,6 @@ const AddProduct = () => {
               key={vIndex}
               className="border rounded-xl mt-4 p-4 space-y-4 relative"
             >
-              {/* REMOVE VARIANT BUTTON */}
               <div className="absolute top-3 right-3">
                 <IconButton
                   size="small"
@@ -299,12 +295,10 @@ const AddProduct = () => {
                 </IconButton>
               </div>
 
-              {/* Image Upload Box */}
               <div>
                 <label className="block font-medium mb-2">Images</label>
 
                 <div className="flex gap-3 flex-wrap">
-                  {/* Upload button */}
                   <label className="relative" htmlFor={`file-${vIndex}`}>
                     <span className="lg:w-24 lg:h-24 w-16 h-16 cursor-pointer flex items-center justify-center p-3 border rounded-md border-gray-400">
                       <AddPhotoAlternateIcon
@@ -334,7 +328,6 @@ const AddProduct = () => {
                     onChange={(e) => handleVariantImageChange(e, vIndex)}
                   />
 
-                  {/* Show Variant Images */}
                   {variant.images?.map((img, i) => (
                     <div key={i} className="relative">
                       <img
@@ -354,7 +347,6 @@ const AddProduct = () => {
                 </div>
               </div>
 
-              {/* Price Row */}
               <div className="flex gap-4">
                 <TextField
                   fullWidth
@@ -393,7 +385,6 @@ const AddProduct = () => {
                 />
               </div>
 
-              {/* Stock - Color - Size */}
               <div className="flex gap-4">
                 <div className="flex-1">
                   <TextField
@@ -462,7 +453,6 @@ const AddProduct = () => {
           ))}
         </div>
 
-        {/* ADD VARIANT BUTTON */}
         <Button
           variant="outlined"
           sx={{
@@ -477,7 +467,6 @@ const AddProduct = () => {
           <span> + Add Variant</span>
         </Button>
 
-        {/* SPECIFICATIONS */}
         <div>
           <h2 className="text-lg font-semibold mt-6">Specifications</h2>
 
@@ -508,7 +497,6 @@ const AddProduct = () => {
           </div>
         </div>
 
-        {/* Show Specs */}
         <div className="space-y-1">
           {formik.values.specifications.map((spec, i) => (
             <div
@@ -525,7 +513,6 @@ const AddProduct = () => {
           ))}
         </div>
 
-        {/* KEY FEATURES */}
         <div>
           <h2 className="text-lg font-semibold">Key Features</h2>
 
@@ -545,7 +532,7 @@ const AddProduct = () => {
             </Button>
           </div>
         </div>
-        {/* features list */}
+
         <ul className="list-disc ml-5">
           {formik.values.features.map((f, i) => (
             <li key={i} className="flex justify-between items-center">
@@ -557,7 +544,6 @@ const AddProduct = () => {
           ))}
         </ul>
 
-        {/* FINAL SUBMIT BUTTON */}
         <Button
           type="submit"
           variant="contained"

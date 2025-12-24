@@ -33,10 +33,6 @@ import {
 
 import storage from "redux-persist/lib/storage";
 
-/* --------------------------------------------------
-   PERSIST CONFIGS — Slice Wise
--------------------------------------------------- */
-
 // CART
 const cartPersistConfig = {
   key: "cart",
@@ -58,9 +54,6 @@ const wishlistPersistConfig = {
   blacklist: ["loading", "addingItemId", "removingItemId", "error"],
 };
 
-/* --------------------------------------------------
-   ROOT REDUCER
--------------------------------------------------- */
 const rootReducer = combineReducers({
   // CUSTOMER
   user: userReducer,
@@ -89,9 +82,6 @@ const rootReducer = combineReducers({
   adminSeller: adminSellerReducer,
 });
 
-/* --------------------------------------------------
-   TOP LEVEL PERSIST CONFIG
--------------------------------------------------- */
 const rootPersistConfig = {
   key: "root",
   storage,
@@ -100,9 +90,6 @@ const rootPersistConfig = {
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
-/* --------------------------------------------------
-   STORE
--------------------------------------------------- */
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

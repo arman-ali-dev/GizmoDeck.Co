@@ -45,7 +45,6 @@ const Orders = () => {
               <p className="text-[14px]">Total: ₹{order.finalAmount}</p>
               <p className="text-[14px] mb-2">Items:</p>
 
-              {/* Order Items Loop */}
               <div className="space-y-2">
                 {order.orderItems?.map((item) => (
                   <OrderItem
@@ -76,17 +75,14 @@ const OrderSkeleton = () => {
         mb: 2,
       }}
     >
-      {/* Order Title */}
       <Skeleton variant="rectangular" width={130} height={16} sx={{ mb: 1 }} />
       <Skeleton variant="rectangular" width={100} height={14} sx={{ mb: 2 }} />
 
-      {/* Items label */}
       <Box sx={{ mb: 2 }}>
         <Skeleton variant="rectangular" width={80} height={12} sx={{ mb: 1 }} />
         <Skeleton variant="rectangular" width={120} height={12} />
       </Box>
 
-      {/* Nested Order Items */}
       <Box sx={{ mt: 2 }}>
         <OrderItemSkeleton />
       </Box>
@@ -105,7 +101,6 @@ const OrderItemSkeleton = () => {
         mb: 2,
       }}
     >
-      {/* Top Section */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Skeleton variant="circular" width={40} height={40} />
 
@@ -120,7 +115,6 @@ const OrderItemSkeleton = () => {
         </Box>
       </Box>
 
-      {/* Middle Section */}
       <Box
         sx={{
           mt: 2,
@@ -131,10 +125,8 @@ const OrderItemSkeleton = () => {
           borderRadius: "4px",
         }}
       >
-        {/* Image placeholder */}
         <Skeleton variant="rectangular" width={90} height={110} />
 
-        {/* Text Details */}
         <Box sx={{ flexGrow: 1 }}>
           <Skeleton
             variant="rectangular"

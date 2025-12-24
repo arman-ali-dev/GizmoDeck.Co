@@ -22,7 +22,6 @@ export default function SellerRevenueChart() {
   const { dashboard } = useSelector((state) => state.sellerDashboard);
   console.log("dashboard", dashboard);
 
-  // Convert backend data → recharts data
   const graphData =
     dashboard?.revenueGraph?.map((item) => ({
       name: item.month,
@@ -56,7 +55,6 @@ export default function SellerRevenueChart() {
       <Tooltip />
       <Legend />
 
-      {/* Actual revenue line */}
       <Line
         type="monotone"
         dataKey="revenue"

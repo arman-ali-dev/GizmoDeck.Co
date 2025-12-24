@@ -98,7 +98,7 @@ const CouponCodeTable = () => {
           </TableHead>
 
           <TableBody>
-            {/* Skeleton Loader */}
+         
             {loading &&
               Array.from(new Array(7)).map((_, index) => (
                 <TableRow key={index}>
@@ -129,7 +129,7 @@ const CouponCodeTable = () => {
                 </TableRow>
               ))}
 
-            {/* Table Data */}
+        
             {!loading &&
               !error &&
               paginatedCoupons?.map((c) => (

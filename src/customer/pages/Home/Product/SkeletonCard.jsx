@@ -6,7 +6,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 const SkeletonCard = () => {
   return (
     <div className="mt-2">
-      {/* Image skeleton */}
       <div className="relative overflow-hidden rounded-xl bg-[#f8f8f8]">
         <Skeleton
           variant="rectangular"
@@ -16,7 +15,6 @@ const SkeletonCard = () => {
           }}
         />
 
-        {/* Wishlist icon skeleton */}
         <Skeleton
           variant="circular"
           sx={{
@@ -29,9 +27,7 @@ const SkeletonCard = () => {
         />
       </div>
 
-      {/* Content */}
       <div className="px-4">
-        {/* Title */}
         <Skeleton
           variant="text"
           sx={{
@@ -41,7 +37,6 @@ const SkeletonCard = () => {
           }}
         />
 
-        {/* Description */}
         <Skeleton
           variant="text"
           sx={{
@@ -50,14 +45,12 @@ const SkeletonCard = () => {
           }}
         />
 
-        {/* Price row */}
         <div className="flex gap-2 mt-2">
           <Skeleton variant="text" width={60} height={20} />
           <Skeleton variant="text" width={50} height={20} />
           <Skeleton variant="text" width={45} height={20} />
         </div>
 
-        {/* Buttons */}
         <div className="mt-4 flex gap-2 mb-2">
           <Skeleton
             variant="rectangular"

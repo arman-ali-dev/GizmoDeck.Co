@@ -73,7 +73,7 @@ const UserDetails = () => {
       dispatch(updateUserProfile(values));
     },
   });
-  // When user clicks change photo → open file dialog
+  
   const openImagePicker = () => {
     fileInputRef.current.click();
   };

@@ -8,7 +8,7 @@ export const checkoutOrder = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const res = await axios.post(
-        "http://localhost:8081/api/orders/checkout",
+        "gizmodeckco-server-production.up.railway.app/api/orders/checkout",
         { addressId },
         {
           headers: {
@@ -32,11 +32,14 @@ export const getUserOrders = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
 
-      const res = await axios.get("http://localhost:8081/api/orders/user", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        "gizmodeckco-server-production.up.railway.app/api/orders/user",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       return res.data;
     } catch (err) {
@@ -55,7 +58,7 @@ export const getOrderItem = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const res = await axios.get(
-        `http://localhost:8081/api/orders/${orderId}/${orderItemId}`,
+        `gizmodeckco-server-production.up.railway.app/api/orders/${orderId}/${orderItemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -81,7 +84,7 @@ export const cancelOrder = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       await axios.put(
-        `http://localhost:8081/api/orders/${orderId}/cancel`,
+        `gizmodeckco-server-production.up.railway.app/api/orders/${orderId}/cancel`,
         {},
         {
           headers: {
@@ -110,7 +113,7 @@ export const directOrderCheckout = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const res = await axios.post(
-        "http://localhost:8081/api/orders/direct",
+        "gizmodeckco-server-production.up.railway.app/api/orders/direct",
         {
           productId,
           variantId,

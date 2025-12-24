@@ -7,7 +7,7 @@ export const fetchCategories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/categories/all"
+        "gizmodeckco-server-production.up.railway.app/api/categories/all"
       );
 
       console.log("c", data);
@@ -28,7 +28,7 @@ export const deleteCategory = createAsyncThunk(
       console.log("Thunk triggered for delete:", id);
 
       const res = await axios.delete(
-        `http://localhost:8081/api/admin/categories/${id}`,
+        `gizmodeckco-server-production.up.railway.app/api/admin/categories/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ export const fetchSubcategories = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        `http://localhost:8081/api/categories/${categoryId}/sub`,
+        `gizmodeckco-server-production.up.railway.app/api/categories/${categoryId}/sub`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

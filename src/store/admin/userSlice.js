@@ -7,14 +7,13 @@ export const fetchUsers = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "http://localhost:8081/api/admin/users/all",
+        "gizmodeckco-server-production.up.railway.app/api/admin/users/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-
 
       return data;
     } catch (err) {

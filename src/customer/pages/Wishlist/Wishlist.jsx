@@ -62,7 +62,6 @@ const WishlistSkeleton = () => {
 const WishlistProductCardSkeleton = () => {
   return (
     <div className="relative">
-      {/* Product Image */}
       <Skeleton
         variant="rectangular"
         className="w-full rounded-md"
@@ -72,10 +71,8 @@ const WishlistProductCardSkeleton = () => {
       />
 
       <div className="space-y-1 lg:pt-3 pt-1.5">
-        {/* Product Name */}
         <Skeleton variant="text" width="80%" height={20} />
 
-        {/* Price Row */}
         <div className="flex items-center gap-3">
           <Skeleton variant="text" width={50} height={20} />
           <Skeleton variant="text" width={40} height={20} />
@@ -83,7 +80,6 @@ const WishlistProductCardSkeleton = () => {
         </div>
       </div>
 
-      {/* Close Icon Skeleton */}
       <div className="absolute top-2 right-2">
         <Skeleton variant="circular" width={32} height={32} />
       </div>

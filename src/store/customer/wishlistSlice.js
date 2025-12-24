@@ -8,7 +8,7 @@ export const addItemToWishlist = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        `http://localhost:8081/api/wishlist/add/${productId}`,
+        `gizmodeckco-server-production.up.railway.app/api/wishlist/add/${productId}`,
         {},
         {
           headers: {
@@ -33,7 +33,7 @@ export const removeItemFromWishlist = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       await axios.delete(
-        `http://localhost:8081/api/wishlist/remove/${wishlistItemId}`,
+        `gizmodeckco-server-production.up.railway.app/api/wishlist/remove/${wishlistItemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -56,11 +56,14 @@ export const fetchWishlistItems = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
 
-      const { data } = await axios.get("http://localhost:8081/api/wishlist", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { data } = await axios.get(
+        "gizmodeckco-server-production.up.railway.app/api/wishlist",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       return data;
     } catch (error) {

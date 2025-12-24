@@ -62,7 +62,6 @@ const ShopByCategory = () => {
         {loading
           ? Array.from({ length: count }).map((_, i) => (
               <div key={i} className="col-span-1 flex flex-col items-center">
-                {/* Circle icon skeleton */}
                 <Skeleton
                   variant="circular"
                   sx={{
@@ -72,7 +71,6 @@ const ShopByCategory = () => {
                   }}
                 />
 
-                {/* Label skeleton */}
                 <Skeleton
                   variant="text"
                   sx={{

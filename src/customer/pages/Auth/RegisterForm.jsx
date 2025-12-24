@@ -63,7 +63,7 @@ const RegisterForm = () => {
 
       try {
         const { data } = await axios.post(
-          "http://localhost:8081/auth/signup",
+          "gizmodeckco-server-production.up.railway.app/auth/signup",
           values
         );
 
@@ -117,10 +117,13 @@ const RegisterForm = () => {
       setOtpSent(true);
       setResendTimer(60);
 
-      const res = await axios.post("http://localhost:8081/auth/send-otp", {
-        email: formik.values.email,
-        role: formik.values.role,
-      });
+      const res = await axios.post(
+        "gizmodeckco-server-production.up.railway.app/auth/send-otp",
+        {
+          email: formik.values.email,
+          role: formik.values.role,
+        }
+      );
     } catch (error) {
       toast.error(
         error?.response?.data?.error ||

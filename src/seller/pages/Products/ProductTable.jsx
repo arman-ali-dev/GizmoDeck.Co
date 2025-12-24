@@ -9,7 +9,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import {
   Box,
-  Button,
   CircularProgress,
   IconButton,
   Pagination,
@@ -23,12 +22,6 @@ import {
   fetchSellerProducts,
 } from "../../../store/seller/productSlice";
 
-const images = [
-  "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/31101834/2024/12/26/bb7963ed-a03b-41ad-8b79-01354822587e1735204642505-Aeropostale-Men-Tshirts-961735204641834-1.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/57b4f393-01ba-4848-a94b-2450a8fcfe231735204642473-Aeropostale-Men-Tshirts-961735204641834-2.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/bf132fc5-d88e-46dc-bbe7-af3afb30e7a71735204642440-Aeropostale-Men-Tshirts-961735204641834-3.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/15c4ecb9-072a-402c-9408-0004328d96991735204642406-Aeropostale-Men-Tshirts-961735204641834-4.jpg",
-];
 
 export default function ProductTable() {
   const dispatch = useDispatch();

@@ -37,7 +37,6 @@ const SubNavbar = () => {
       <Box className="relative lg:block hidden w-full border-b border-[#bbb6b6] bg-white shadow-sm">
         <div className="lg:h-[70px] md:h-[60px] h-[50px] flex items-center justify-between px-4 sm:px-6 lg:px-12">
           {" "}
-          {/* Logo */}
           <Link
             to="/"
             className="logo cursor-pointer text-md md:text-xl font-bold"
@@ -76,7 +75,6 @@ const SubNavbar = () => {
         </div>
       </Box>
 
-      {/* Category Sheet */}
       {activeCategory && (
         <Box
           onMouseEnter={() => {

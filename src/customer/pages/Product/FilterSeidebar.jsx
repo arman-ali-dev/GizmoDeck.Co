@@ -109,7 +109,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
 
   return (
     <>
-      {/* Overlay for mobile (when sidebar open, lock background scroll) */}
       {showSidebar && (
         <div
           className="fixed inset-0 bg-black/40 z-[9998] xl:hidden"
@@ -123,7 +122,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
         } 
         xl:translate-x-0 !xl:w-[50%]"`}
       >
-        {/* Header with Close Button (visible only on mobile) */}
         <div className="flex justify-between items-center py-3 border-b-[2px] xl:hidden">
           <h2 className="font-medium text-[20px]">Filters</h2>
           <IconButton onClick={() => setShowSidebar(false)}>
@@ -131,7 +129,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
           </IconButton>
         </div>
 
-        {/* Brand */}
         {filters?.brands?.length > 0 && (
           <div className="mt-5">
             <div className="border-b-[2px]">
@@ -168,7 +165,7 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
             </FormGroup>
           </div>
         )}
-        {/* Discount */}
+
         {filters?.discounts?.length > 0 && (
           <div className="mt-5">
             <div className="border-b-[2px]">
@@ -206,7 +203,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
           </div>
         )}
 
-        {/* Color */}
         {filters?.colors?.length > 0 && (
           <div className="mt-5">
             <div className="border-b-[2px]">
@@ -224,7 +220,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
           </div>
         )}
 
-        {/* Specification */}
         {filters?.specifications &&
           Object.keys(filters.specifications).length > 0 && (
             <div className="mt-5">
@@ -273,7 +268,6 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
             </div>
           )}
 
-        {/* Price */}
         {(filters?.minPrice || filters?.maxPrice) && (
           <div className="mt-5 pb-10">
             <div className="border-b-[2px]">

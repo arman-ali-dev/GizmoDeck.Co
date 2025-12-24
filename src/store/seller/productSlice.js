@@ -9,7 +9,7 @@ export const fetchSellerProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "http://localhost:8081/api/seller/products/all",
+        "gizmodeckco-server-production.up.railway.app/api/seller/products/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export const createSellerProduct = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "http://localhost:8081/api/seller/products/create",
+        "gizmodeckco-server-production.up.railway.app/api/seller/products/create",
         productData,
         {
           headers: {
@@ -41,7 +41,6 @@ export const createSellerProduct = createAsyncThunk(
           },
         }
       );
-
 
       return data;
     } catch (error) {
@@ -60,7 +59,7 @@ export const deleteSellerProduct = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.delete(
-        `http://localhost:8081/api/seller/products/${productId}`,
+        `gizmodeckco-server-production.up.railway.app/api/seller/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

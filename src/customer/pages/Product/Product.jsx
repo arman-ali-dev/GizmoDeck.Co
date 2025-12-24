@@ -122,7 +122,7 @@ const Product = () => {
           <div className="w-full flex-1  space-y-5">
             <div className="flex justify-between items-center lg:px-9 h-[40px]">
               <div className="relative w-[50%]">
-                {/* Add responsive filter icon if needed */}
+            
                 <IconButton
                   onClick={() => setShowSidebar(true)}
                   className="lg:hidden"

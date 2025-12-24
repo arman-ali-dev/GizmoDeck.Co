@@ -68,7 +68,7 @@ const AddCouponCode = () => {
         };
 
         const res = await axios.post(
-          "http://localhost:8081/api/admin/coupons/create",
+          "gizmodeckco-server-production.up.railway.app/api/admin/coupons/create",
           payload,
           {
             headers: {
@@ -99,7 +99,6 @@ const AddCouponCode = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit} className="space-y-4 lg:p-4">
-        {/* Row 1 - Code and Discount Type */}
         <div className="flex gap-5">
           <TextField
             fullWidth
@@ -144,7 +143,6 @@ const AddCouponCode = () => {
           )}
         </div>
 
-        {/* Row 2 - Discount Value & Min Order */}
         <div className="flex gap-5">
           <TextField
             fullWidth
@@ -181,7 +179,6 @@ const AddCouponCode = () => {
           />
         </div>
 
-        {/* Row 3 - Dates */}
         <div className="flex gap-5">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -222,7 +219,6 @@ const AddCouponCode = () => {
           </LocalizationProvider>
         </div>
 
-        {/* Usage Limit */}
         <TextField
           fullWidth
           name="usageLimit"

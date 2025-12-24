@@ -235,7 +235,7 @@ const ReviewCardSkeleton = () => {
         </div>
       </div>
 
-      {/* Delete Button */}
+
       <Skeleton variant="circular" width={25} height={25} />
     </div>
   );

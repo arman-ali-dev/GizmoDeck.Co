@@ -57,7 +57,7 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
         const token = localStorage.getItem("jwt");
 
         const { data } = await axios.put(
-          `http://localhost:8081/api/admin/categories/${selectedCategory.id}`,
+          `gizmodeckco-server-production.up.railway.app/api/admin/categories/${selectedCategory.id}`,
           {
             name: values.name,
             description: values.description,
@@ -105,7 +105,6 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
 
   return (
     <Box sx={style} component="form" onSubmit={formik.handleSubmit}>
-      {/* Header */}
       <div className="flex justify-between items-start mb-4">
         <h2 className="text-[22px] font-medium">Edit Category</h2>
         <IconButton onClick={handleClose}>
@@ -113,7 +112,6 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
         </IconButton>
       </div>
 
-      {/* Image Upload */}
       <div className="flex gap-5 items-center mb-5">
         <input
           type="file"
@@ -138,8 +136,6 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
           )}
         </label>
 
-        {/* Preview Image */}
-
         <div className="relative">
           <img
             className="lg:w-24 rounded-lg lg:h-24 w-16 h-16 object-cover border"
@@ -163,7 +159,6 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
         </div>
       </div>
 
-      {/* Inputs */}
       <div className="space-y-4">
         <div>
           <TextField
@@ -217,7 +212,6 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
         </div>
       </div>
 
-      {/* Submit Button */}
       <Button
         type="submit"
         variant="contained"

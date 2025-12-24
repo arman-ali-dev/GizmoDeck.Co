@@ -9,7 +9,7 @@ export const addAddress = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "http://localhost:8081/api/addresses/add",
+        "gizmodeckco-server-production.up.railway.app/api/addresses/add",
         addressData,
         {
           headers: {
@@ -36,7 +36,7 @@ export const fetchAddresses = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        "http://localhost:8081/api/addresses/all/user",
+        "gizmodeckco-server-production.up.railway.app/api/addresses/all/user",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export const updateAddress = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.put(
-        `http://localhost:8081/api/addresses/${updatedData?.id}`,
+        `gizmodeckco-server-production.up.railway.app/api/addresses/${updatedData?.id}`,
         updatedData,
         {
           headers: {
@@ -85,7 +85,7 @@ export const deleteAddress = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.delete(
-        `http://localhost:8081/api/addresses/${addressId}`,
+        `gizmodeckco-server-production.up.railway.app/api/addresses/${addressId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

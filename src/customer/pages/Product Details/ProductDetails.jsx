@@ -27,19 +27,13 @@ import {
 import { addToCart } from "../../../store/customer/cartSlice";
 import { Skeleton } from "@mui/material";
 
-const images = [
-  "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/31101834/2024/12/26/bb7963ed-a03b-41ad-8b79-01354822587e1735204642505-Aeropostale-Men-Tshirts-961735204641834-1.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/57b4f393-01ba-4848-a94b-2450a8fcfe231735204642473-Aeropostale-Men-Tshirts-961735204641834-2.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/bf132fc5-d88e-46dc-bbe7-af3afb30e7a71735204642440-Aeropostale-Men-Tshirts-961735204641834-3.jpg",
-  "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/31101834/2024/12/26/15c4ecb9-072a-402c-9408-0004328d96991735204642406-Aeropostale-Men-Tshirts-961735204641834-4.jpg",
-];
-
 const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { productDetails, errorProductDetails, loadingProductDetails } =
-    useSelector((state) => state.product);
+  const { productDetails, loadingProductDetails } = useSelector(
+    (state) => state.product
+  );
 
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("details");
@@ -106,23 +100,6 @@ const ProductDetails = () => {
       })
     );
   };
-
-  // Order Now
-
-  // const handleOrderNow = async () => {
-  //   const res = await dispatch(
-  //     directOrderCheckout({
-  //       productId: productId,
-  //       variantId: currentVariant?.Id,
-  //       quantity: quantity,
-  //       addressId: selectedAddress.id,
-  //     })
-  //   );
-
-  //   if (res.payload?.sessionUrl) {
-  //     window.location.href = res.payload.sessionUrl;
-  //   }
-  // };
 
   return (
     <>
@@ -404,15 +381,6 @@ const ProductDetails = () => {
                   </p>
                 </div>
               </div>
-
-              {/* <div className="lg:mt-7 mt-4">
-              <div className="border-t border-gray-300 pt-4 lg:pt-5">
-                <h3 className="font-semibold lg:text-lg text-[14px] mb-2">
-                  Customer Reviews
-                </h3>
-                <ReviewCard />
-              </div>
-            </div> */}
             </section>
           </div>
         )}

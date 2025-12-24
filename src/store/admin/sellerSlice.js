@@ -7,7 +7,7 @@ export const fetchSellers = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "http://localhost:8081/api/admin/sellers/all",
+        "gizmodeckco-server-production.up.railway.app/api/admin/sellers/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "http://localhost:8081/api/products/all",
+        "gizmodeckco-server-production.up.railway.app/api/products/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ export const fetchFeaturedProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/products/all/featured"
+        "gizmodeckco-server-production.up.railway.app/api/products/all/featured"
       );
 
       return data;
@@ -44,7 +44,7 @@ export const fetchBestSellerProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8081/api/products/all/best-seller"
+        "gizmodeckco-server-production.up.railway.app/api/products/all/best-seller"
       );
 
       return data;
@@ -61,7 +61,7 @@ export const fetchProductDetails = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/${productId}`,
+        `gizmodeckco-server-production.up.railway.app/api/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ export const fetchSimilarProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/${productId}/similar`,
+        `gizmodeckco-server-production.up.railway.app/api/products/${productId}/similar`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ export const searchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/search?keyword=${query}`,
+        `gizmodeckco-server-production.up.railway.app/api/products/search?keyword=${query}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -129,7 +129,7 @@ export const sortProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/sort?sortBy=${sortBy}&ascending=${ascending}`,
+        `gizmodeckco-server-production.up.railway.app/api/products/sort?sortBy=${sortBy}&ascending=${ascending}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -148,7 +148,7 @@ export const fetchFilters = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/filters?categoryId=${categoryId}`,
+        `gizmodeckco-server-production.up.railway.app/api/products/filters?categoryId=${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export const filterProducts = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "http://localhost:8081/api/products/filter",
+        "gizmodeckco-server-production.up.railway.app/api/products/filter",
         filters,
         {
           headers: {
@@ -199,7 +199,7 @@ export const fetchProductsByCategory = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        `http://localhost:8081/api/products/categories/${categoryId}`,
+        `gizmodeckco-server-production.up.railway.app/api/products/categories/${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -412,13 +412,12 @@ const productSlice = createSlice({
         state.loadingCategoryProducts = true;
         state.errorCategoryProducts = null;
 
-      
         state.filteredProducts = [];
       })
       .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
         state.loadingCategoryProducts = false;
         state.categoryProducts = action.payload;
-        state.searchResults = action.payload; 
+        state.searchResults = action.payload;
       })
       .addCase(fetchProductsByCategory.rejected, (state, action) => {
         state.loadingCategoryProducts = false;

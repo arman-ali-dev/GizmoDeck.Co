@@ -11,11 +11,6 @@ import {
   removeItemFromWishlist,
 } from "../../../../store/customer/wishlistSlice";
 
-const pimages = [
-  "https://res-console.cloudinary.com/dqiivlmgs/thumbnails/v1/image/upload/v1762250166/c3R1cWY3OW1ldTh5enF3eTB4dGQ=/preview",
-  "https://res.cloudinary.com/dqiivlmgs/image/upload/v1762250083/mfk2tgbqmiaqrs8mo7qf.png",
-];
-
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const [currentImage, setCurrentImage] = useState(0);

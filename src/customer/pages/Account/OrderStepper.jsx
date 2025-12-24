@@ -34,7 +34,6 @@ const OrderStepper = ({ order }) => {
 
   const [statusStep, setStatusStep] = useState(steps);
 
-  // switch steps based on special statuses
   useEffect(() => {
     if (orderStatus === "CANCELLED") setStatusStep(cancelledSteps);
     else if (orderStatus === "RETURNED") setStatusStep(returnedSteps);
@@ -42,7 +41,6 @@ const OrderStepper = ({ order }) => {
     else setStatusStep(steps);
   }, [orderStatus]);
 
-  // find current index dynamically
   const currentStep = statusStep.findIndex((s) => s.value === orderStatus);
 
   const formatDate = (date) => {
@@ -91,7 +89,6 @@ const OrderStepper = ({ order }) => {
     <Box className="my-10">
       {statusStep.map((step, index) => (
         <div key={index} className="flex px-4">
-          {/* Left Side Icons */}
           <div className="flex flex-col items-center">
             <Box
               className={`w-8 h-8 rounded-full flex items-center justify-center ${
@@ -116,7 +113,6 @@ const OrderStepper = ({ order }) => {
             )}
           </div>
 
-          {/* Right Text Area */}
           <div className="ml-3 w-full">
             <div
               className={`${

@@ -163,10 +163,10 @@ export default function OrderTable() {
               !error &&
               paginatedOrders?.map((order) => (
                 <StyledTableRow key={order?.id}>
-                  {/* ORDER ID */}
+            
                   <StyledTableCell>{order?.id}</StyledTableCell>
 
-                  {/* PRODUCTS LIST */}
+            
                   <StyledTableCell>
                     <div className="flex flex-col gap-3">
                       {order?.orderItems?.map((item) => (
@@ -188,7 +188,7 @@ export default function OrderTable() {
                     </div>
                   </StyledTableCell>
 
-                  {/* SHIPPING ADDRESS */}
+                 
                   <StyledTableCell align="right">
                     <div className="flex flex-col gap-1 text-xs md:text-sm">
                       <span>{order?.address?.name}</span>
@@ -200,7 +200,7 @@ export default function OrderTable() {
                     </div>
                   </StyledTableCell>
 
-                  {/* STATUS */}
+              
                   <StyledTableCell align="right">
                     <span
                       className="px-2 py-1 text-xs md:text-sm border rounded-full"
@@ -210,7 +210,7 @@ export default function OrderTable() {
                     </span>
                   </StyledTableCell>
 
-                  {/* UPDATE BUTTON */}
+             
                   <StyledTableCell align="right">
                     <Button
                       size="small"

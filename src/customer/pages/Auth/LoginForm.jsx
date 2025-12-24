@@ -42,7 +42,7 @@ const LoginForm = () => {
 
       try {
         const { data } = await axios.post(
-          "http://localhost:8081/auth/login",
+          "gizmodeckco-server-production.up.railway.app/auth/login",
           values
         );
 
@@ -94,9 +94,12 @@ const LoginForm = () => {
 
       setOtpSent(true);
       setResendTimer(60);
-      const res = await axios.post("http://localhost:8081/auth/send-otp", {
-        email: "signin_" + formik.values.email,
-      });
+      const res = await axios.post(
+        "gizmodeckco-server-production.up.railway.app/auth/send-otp",
+        {
+          email: "signin_" + formik.values.email,
+        }
+      );
     } catch (error) {
       toast.error(
         error?.response?.data?.error ||
@@ -198,7 +201,7 @@ const LoginForm = () => {
               </Button>
             </div>
             <Button
-              onClick={formik.handleSubmit}                                
+              onClick={formik.handleSubmit}
               fullWidth
               variant="contained"
               sx={{

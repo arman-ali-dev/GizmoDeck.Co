@@ -30,10 +30,8 @@ const steps = [
   "Verification",
 ];
 const stepFields = [
-  // Step 0 → email + gstin
   ["email", "gstin"],
 
-  // Step 1 → pickupAddress fields
   [
     "pickupAddress.name",
     "pickupAddress.phoneNumber",
@@ -44,14 +42,12 @@ const stepFields = [
     "pickupAddress.state",
   ],
 
-  // Step 2 → accountDetails fields
   [
     "bankDetails.accountNumber",
     "bankDetails.ifscCode",
     "bankDetails.accountHolderName",
   ],
 
-  // Step 3 → businessDetails fields
   [
     "businessDetails.businessName",
     "businessDetails.businessEmail",
@@ -59,7 +55,6 @@ const stepFields = [
     "businessDetails.businessAddress",
   ],
 
-  // Step 4
   ["otp"],
 ];
 
@@ -204,7 +199,7 @@ const SellerAccountForm = () => {
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        "http://localhost:8081/api/seller/apply",
+        "gizmodeckco-server-production.up.railway.app/api/seller/apply",
         formik.values,
         {
           headers: {
@@ -230,7 +225,7 @@ const SellerAccountForm = () => {
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        `http://localhost:8081/api/seller/verify-otp?otp=${formik.values.otp}`,
+        `gizmodeckco-server-production.up.railway.app/api/seller/verify-otp?otp=${formik.values.otp}`,
         {},
         {
           headers: {
@@ -251,7 +246,6 @@ const SellerAccountForm = () => {
 
   return (
     <div>
-      {/* Stepper */}
       <div className="w-full overflow-x-auto scrollbar-hide">
         <Stepper
           activeStep={activeStep}
@@ -284,7 +278,6 @@ const SellerAccountForm = () => {
         </Stepper>
       </div>
 
-      {/* Form Section */}
       <section className="lg:mt-20 mt-10 space-y-10 md:w-[450px] mx-auto">
         <div>
           {activeStep === 0 ? (
@@ -300,7 +293,6 @@ const SellerAccountForm = () => {
           )}
         </div>
 
-        {/* Step Navigation Buttons */}
         <div className="flex items-center justify-between">
           <Button
             onClick={() => handleStep(-1)}

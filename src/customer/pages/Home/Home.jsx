@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import CategoryGrid from "./CategoryGrid/CategoryGrid";
-import Category from "./Category/Category";
 import ShopByCategory from "./ShopByCategory/ShopByCategory";
-import bannerImage from "../../../assets/banner.png";
 import { Link } from "react-router-dom";
 import TopProducts from "./Product/TopProducts";
 import TrendingProducts from "./Product/TrendingProducts";
@@ -14,9 +12,6 @@ import {
 } from "../../../store/customer/productSlice";
 import { fetchUserProfile } from "../../../store/customer/userSlice";
 import { fetchCart } from "../../../store/customer/cartSlice";
-import Banner from "./Banner/Banner";
-import truck from "../../../assets/truck.png";
-import payment from "../../../assets/payment-method.png";
 import deadline from "../../../assets/deadline.png";
 import shopping from "../../../assets/shopping.png";
 import easyReturn from "../../../assets/return.png";
@@ -40,11 +35,9 @@ const Home = () => {
 
   return (
     <>
-      {/* <Category /> */}
       <CategoryGrid />
 
       <ShopByCategory />
-      {/* <Banner /> */}
 
       <section className="lg:px-10 px-4 md:mt-16 mt-8">
         <div className="grid lg:grid-cols-4 px-3 lg:px-0 grid-cols-2 gap-y-8 lg:gap-y-0 bg-[#F8F8F8] py-10 lg:rounded-lg rounded-md">

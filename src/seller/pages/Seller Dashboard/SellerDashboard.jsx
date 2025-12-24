@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Divider } from "@mui/material";
 import SellerDrawerList from "../../../seller/components/Seller Drawer List/SellerDrawerList";
 import SellerRoutes from "../../../Routes/SellerRoutes";
 import ListIcon from "@mui/icons-material/List";
-import { useDispatch } from "react-redux";
-import { fetchSellerDashboard } from "../../../store/seller/sellerDashboardSlice";
 
 const SellerDashboard = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -12,8 +9,6 @@ const SellerDashboard = () => {
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
-
- 
 
   return (
     <div className="relative">

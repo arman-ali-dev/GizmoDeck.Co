@@ -16,7 +16,8 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { uploadToCloudinary } from "../../../util/uploadToCloudinary";
 import { toast } from "react-toastify";
-import * as Yup from "yup";``
+import * as Yup from "yup";
+``;
 
 const AddCategory = () => {
   const [uploadImage, setUploadImage] = useState(false);
@@ -57,7 +58,7 @@ const AddCategory = () => {
         };
 
         const res = await axios.post(
-          "http://localhost:8081/api/admin/categories",
+          "gizmodeckco-server-production.up.railway.app/api/admin/categories",
           payload,
           {
             headers: {
@@ -112,7 +113,6 @@ const AddCategory = () => {
             onChange={handleChangeImage}
           />
 
-          {/* Upload button */}
           <label className="relative" htmlFor="fileInput">
             <span className="lg:w-24 lg:h-24 w-16 h-16 cursor-pointer flex items-center justify-center p-3 border rounded-md border-gray-400">
               <AddPhotoAlternateIcon
@@ -133,7 +133,6 @@ const AddCategory = () => {
             )}
           </label>
 
-          {/* Preview Image */}
           {formik.values.image && (
             <div className="relative">
               <img
@@ -237,13 +236,13 @@ const AddCategory = () => {
             }
             sx={{
               fontSize: { xs: "13px", md: "14px" },
-              height: isMobile ? 38 : 53, // 👈 small in mobile, medium in desktop
+              height: isMobile ? 38 : 53,
               "& .MuiSelect-select": {
                 paddingY: isMobile ? "8px" : "14px",
                 fontSize: { xs: "13px", md: "14px" },
               },
               "& .MuiSvgIcon-root": {
-                fontSize: isMobile ? "18px" : "22px", // dropdown arrow size
+                fontSize: isMobile ? "18px" : "22px",
               },
               transition: "all 0.2s ease-in-out",
             }}

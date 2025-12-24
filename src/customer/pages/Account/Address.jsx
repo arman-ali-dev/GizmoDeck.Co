@@ -87,14 +87,14 @@ const Address = () => {
         )}
       </div>
 
-      {/* ADD ADDRESS MODAL */}
+ 
       <Modal open={openAddAddressForm} onClose={handleCloseAddAddressForm}>
         <Box sx={style}>
           <AddressForm handleClose={handleCloseAddAddressForm} />
         </Box>
       </Modal>
 
-      {/* EDIT ADDRESS MODAL */}
+   
       <Modal open={openEditAddressForm} onClose={handleCloseEditAddressForm}>
         <Box sx={style}>
           <EditAddressForm

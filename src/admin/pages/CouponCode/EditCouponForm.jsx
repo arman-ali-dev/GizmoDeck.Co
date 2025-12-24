@@ -89,7 +89,7 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
         };
 
         const { data } = await axios.put(
-          `http://localhost:8081/api/admin/coupons/update/${selectedCoupon?.id}`,
+          `gizmodeckco-server-production.up.railway.app/api/admin/coupons/update/${selectedCoupon?.id}`,
           payload,
           {
             headers: {
@@ -123,7 +123,6 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
   return (
     <>
       <Box sx={style}>
-        {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <h2 className="text-[22px] font-medium">Edit Coupon</h2>
           <IconButton onClick={handleClose}>
@@ -132,7 +131,6 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
         </div>
 
         <form onSubmit={formik.handleSubmit} className="space-y-4 lg:p-4">
-          {/* Row 1 - Code and Discount Type */}
           <div className="flex gap-5">
             <TextField
               fullWidth
@@ -178,7 +176,6 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
             )}
           </div>
 
-          {/* Row 2 - Discount Value & Min Order */}
           <div className="flex gap-5">
             <TextField
               fullWidth
@@ -215,7 +212,6 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
             />
           </div>
 
-          {/* Row 3 - Dates */}
           <div className="flex gap-5">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
@@ -258,7 +254,6 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
             </LocalizationProvider>
           </div>
 
-          {/* Usage Limit */}
           <TextField
             fullWidth
             name="usageLimit"
