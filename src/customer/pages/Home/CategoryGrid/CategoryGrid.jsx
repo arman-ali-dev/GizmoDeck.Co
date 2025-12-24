@@ -1,4 +1,10 @@
 import React from "react";
+import menImage from "../../../../assets/men.jpeg";
+import shoesImage from "../../../../assets/shoes.jpg";
+import men2Image from "../../../../assets/men-2.avif";
+import bagImage from "../../../../assets/bag.jpg";
+import jwelleryImage from "../../../../assets/jwellery.jpeg";
+import slipperImage from "../../../../assets/slipper.jpeg";
 
 const CategoryGrid = () => {
   return (
@@ -7,7 +13,7 @@ const CategoryGrid = () => {
         <div className="lg:col-span-3 col-span-4 row-span-12">
           <img
             className="h-full w-full object-cover object-top rounded-md"
-            src="https://rukminim2.flixcart.com/image/832/832/xif0q/kurta/8/g/p/m-jf-short-krt-man-blk-jagrutifashion-original-imahfygavpdypzgz.jpeg?q=70&crop=false"
+            src={menImage}
             alt=""
           />
         </div>
@@ -15,7 +21,7 @@ const CategoryGrid = () => {
         <div className="lg:col-span-2 col-span-4 lg:row-span-6 row-span-4">
           <img
             className="h-full w-full  object-cover object-top rounded-md"
-            src="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/27866276/2024/2/26/30fa540f-d22b-4738-aa6b-6c8475c643171708938616445RoadsterCasualBootsForMen1.jpg"
+            src={shoesImage}
             alt=""
           />
         </div>
@@ -23,7 +29,7 @@ const CategoryGrid = () => {
         <div className="col-span-4 lg:row-span-6 row-span-4">
           <img
             className="h-full w-full  object-cover object-top rounded-md"
-            src="https://img.freepik.com/free-photo/close-up-photo-young-successful-business-man-black-suit_171337-9509.jpg?t=st=1760089282~exp=1760092882~hmac=a4928e0d01c73fd2464fd13f62f3e0db492b3a8f4d2a8332d5d6459eef88a8d8&w=740"
+            src={men2Image}
             alt=""
           />
         </div>
@@ -31,7 +37,7 @@ const CategoryGrid = () => {
         <div className="lg:col-span-3 col-span-8 lg:row-span-12 row-span-4">
           <img
             className="h-full w-full  object-cover lg:object-bottom object-center rounded-md"
-            src="https://pikaso.cdnpk.net/private/production/2525366177/conversions/render-preview.jpg?token=exp=1783900800~hmac=b7b0dd6468cd74bf7f7e18520c39e1d89bdb40531a26286c331de2d5d40a0301"
+            src={bagImage}
             alt=""
           />
         </div>
@@ -39,7 +45,7 @@ const CategoryGrid = () => {
         <div className="col-span-4 lg:row-span-6 row-span-4">
           <img
             className="h-full w-full  object-cover object-center rounded-md"
-            src="https://rukminim2.flixcart.com/image/832/832/k0wqwsw0/jewellery-set/e/x/8/dvtjns-01chokr-bk-divastri-original-imafkhswngqxgfph.jpeg?q=70&crop=false"
+            src={jwelleryImage}
             alt=""
           />
         </div>
@@ -47,7 +53,7 @@ const CategoryGrid = () => {
         <div className="lg:col-span-2 col-span-4 lg:row-span-6 row-span-4">
           <img
             className="h-full  w-full object-cover object-top rounded-md"
-            src="https://rukminim2.flixcart.com/image/832/832/xif0q/slipper-flip-flop/1/u/t/7-7-v-sape-black-lepar-men-3498-glossy-black-original-imahgf9ftsqcmzay.jpeg?q=70&crop=false"
+            src={slipperImage}
             alt=""
           />
         </div>
