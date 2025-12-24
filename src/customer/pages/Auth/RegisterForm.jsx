@@ -11,9 +11,12 @@ import { MuiOtpInput } from "mui-one-time-password-input";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuthenticated, setJwt } from "../../../store/customer/authSlice";
 
 const RegisterForm = () => {
   const naviagate = useNavigate();
+  const dispatch = useDispatch();
   const [otpSent, setOtpSent] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -67,8 +70,9 @@ const RegisterForm = () => {
           values
         );
 
-        console.log(data);
-
+        localStorage.setItem("jwt", data.jwt);
+        dispatch(setAuthenticated(true));
+        dispatch(setJwt(data.jwt));
         localStorage.setItem("jwt", data.jwt);
         naviagate("/");
       } catch (error) {

@@ -51,24 +51,22 @@ const Address = () => {
   return (
     <>
       <div>
-        {addresses?.length !== 0 && (
-          <div className="mb-5 text-right">
-            <Button
-              onClick={handleOpenAddAddressForm}
-              variant="contained"
-              sx={{
-                textTransform: "capitalize",
-                backgroundColor: "black",
-                fontSize: 14,
-                paddingY: 1,
-                paddingX: 3,
-              }}
-            >
-              <AddIcon />
-              <span className="ml-1 text-[13px]">Add Address</span>
-            </Button>
-          </div>
-        )}
+        <div className="mb-5 text-right">
+          <Button
+            onClick={handleOpenAddAddressForm}
+            variant="contained"
+            sx={{
+              textTransform: "capitalize",
+              backgroundColor: "black",
+              fontSize: 14,
+              paddingY: 1,
+              paddingX: 3,
+            }}
+          >
+            <AddIcon />
+            <span className="ml-1 text-[13px]">Add Address</span>
+          </Button>
+        </div>
 
         {loading ? (
           <AddressListSkeleton />
@@ -87,14 +85,12 @@ const Address = () => {
         )}
       </div>
 
- 
       <Modal open={openAddAddressForm} onClose={handleCloseAddAddressForm}>
         <Box sx={style}>
           <AddressForm handleClose={handleCloseAddAddressForm} />
         </Box>
       </Modal>
 
-   
       <Modal open={openEditAddressForm} onClose={handleCloseEditAddressForm}>
         <Box sx={style}>
           <EditAddressForm

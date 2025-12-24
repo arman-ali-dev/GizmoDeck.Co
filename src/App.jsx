@@ -39,7 +39,7 @@ const App = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = "auto";
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -84,7 +84,6 @@ const App = () => {
         <>
           <Header />
           <NavBar />
-       
         </>
       )}
       <Routes>
