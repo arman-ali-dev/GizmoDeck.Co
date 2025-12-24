@@ -9,7 +9,7 @@ export const addReview = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        `gizmodeckco-server-production.up.railway.app/api/product/reviews/add/${productId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/product/reviews/add/${productId}`,
         { ratingValue: rating, comment, images },
         {
           headers: {
@@ -33,7 +33,7 @@ export const fetchProductReviews = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/product/reviews/all/${productId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/product/reviews/all/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ export const deleteReview = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       await axios.delete(
-        `gizmodeckco-server-production.up.railway.app/api/product/reviews/delete/${reviewId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/product/reviews/delete/${reviewId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

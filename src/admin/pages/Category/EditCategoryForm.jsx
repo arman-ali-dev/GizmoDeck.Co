@@ -57,7 +57,7 @@ const EditCategoryForm = ({ handleClose, selectedCategory }) => {
         const token = localStorage.getItem("jwt");
 
         const { data } = await axios.put(
-          `gizmodeckco-server-production.up.railway.app/api/admin/categories/${selectedCategory.id}`,
+          `https://gizmodeckco-server-production.up.railway.app/api/admin/categories/${selectedCategory.id}`,
           {
             name: values.name,
             description: values.description,

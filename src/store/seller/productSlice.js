@@ -9,7 +9,7 @@ export const fetchSellerProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "gizmodeckco-server-production.up.railway.app/api/seller/products/all",
+        "https://gizmodeckco-server-production.up.railway.app/api/seller/products/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export const createSellerProduct = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "gizmodeckco-server-production.up.railway.app/api/seller/products/create",
+        "https://gizmodeckco-server-production.up.railway.app/api/seller/products/create",
         productData,
         {
           headers: {
@@ -59,7 +59,7 @@ export const deleteSellerProduct = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.delete(
-        `gizmodeckco-server-production.up.railway.app/api/seller/products/${productId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/seller/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

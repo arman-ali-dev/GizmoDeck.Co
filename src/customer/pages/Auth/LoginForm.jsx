@@ -42,7 +42,7 @@ const LoginForm = () => {
 
       try {
         const { data } = await axios.post(
-          "gizmodeckco-server-production.up.railway.app/auth/login",
+          "https://gizmodeckco-server-production.up.railway.app/auth/login",
           values
         );
 
@@ -95,7 +95,7 @@ const LoginForm = () => {
       setOtpSent(true);
       setResendTimer(60);
       const res = await axios.post(
-        "gizmodeckco-server-production.up.railway.app/auth/send-otp",
+        "https://gizmodeckco-server-production.up.railway.app/auth/send-otp",
         {
           email: "signin_" + formik.values.email,
         }

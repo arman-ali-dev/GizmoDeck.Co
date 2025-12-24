@@ -14,8 +14,10 @@ const TrendingProducts = () => {
   const { bestSellerProducts, loadingBestSeller, errorBestSeller } =
     useSelector((state) => state.product);
 
-  const firstSliderProducts = bestSellerProducts?.slice(0, 5);
-  const secondSliderProducts = bestSellerProducts?.slice(5, 10);
+  const products = Array.isArray(bestSellerProducts) ? bestSellerProducts : [];
+
+  const firstSliderProducts = products.slice(0, 5);
+  const secondSliderProducts = products.slice(5, 10);
 
   return (
     <>

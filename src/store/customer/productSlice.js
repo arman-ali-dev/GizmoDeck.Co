@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "gizmodeckco-server-production.up.railway.app/api/products/all",
+        "https://gizmodeckco-server-production.up.railway.app/api/products/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ export const fetchFeaturedProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "gizmodeckco-server-production.up.railway.app/api/products/all/featured"
+        "https://gizmodeckco-server-production.up.railway.app/api/products/all/featured"
       );
 
       return data;
@@ -44,7 +44,7 @@ export const fetchBestSellerProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "gizmodeckco-server-production.up.railway.app/api/products/all/best-seller"
+        "https://gizmodeckco-server-production.up.railway.app/api/products/all/best-seller"
       );
 
       return data;
@@ -61,7 +61,7 @@ export const fetchProductDetails = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/${productId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ export const fetchSimilarProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/${productId}/similar`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/${productId}/similar`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ export const searchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/search?keyword=${query}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/search?keyword=${query}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -129,7 +129,7 @@ export const sortProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/sort?sortBy=${sortBy}&ascending=${ascending}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/sort?sortBy=${sortBy}&ascending=${ascending}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -148,7 +148,7 @@ export const fetchFilters = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/filters?categoryId=${categoryId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/filters?categoryId=${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export const filterProducts = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "gizmodeckco-server-production.up.railway.app/api/products/filter",
+        "https://gizmodeckco-server-production.up.railway.app/api/products/filter",
         filters,
         {
           headers: {
@@ -199,7 +199,7 @@ export const fetchProductsByCategory = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        `gizmodeckco-server-production.up.railway.app/api/products/categories/${categoryId}`,
+        `https://gizmodeckco-server-production.up.railway.app/api/products/categories/${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

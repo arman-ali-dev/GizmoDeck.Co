@@ -89,7 +89,7 @@ const EditCouponForm = ({ handleClose, selectedCoupon }) => {
         };
 
         const { data } = await axios.put(
-          `gizmodeckco-server-production.up.railway.app/api/admin/coupons/update/${selectedCoupon?.id}`,
+          `https://gizmodeckco-server-production.up.railway.app/api/admin/coupons/update/${selectedCoupon?.id}`,
           payload,
           {
             headers: {

@@ -8,7 +8,7 @@ export const fetchUserProfile = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "gizmodeckco-server-production.up.railway.app/api/users/profile",
+        "https://gizmodeckco-server-production.up.railway.app/api/users/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -30,7 +30,7 @@ export const updateUserProfile = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.put(
-        "gizmodeckco-server-production.up.railway.app/api/users/update",
+        "https://gizmodeckco-server-production.up.railway.app/api/users/update",
         payload,
         {
           headers: {

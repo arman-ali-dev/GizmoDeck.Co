@@ -15,8 +15,10 @@ const TopProducts = () => {
     (state) => state.product
   );
 
-  const firstSliderProducts = featuredProducts?.slice(0, 5);
-  const secondSliderProducts = featuredProducts?.slice(5, 10);
+  const products = Array.isArray(featuredProducts) ? featuredProducts : [];
+
+  const firstSliderProducts = products.slice(0, 5);
+  const secondSliderProducts = products.slice(5, 10);
 
   return (
     <>
