@@ -89,10 +89,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route element={<PublicOnlyRoute isAuthenticated={isAuthenticated} />}>
-          <Route path="/login" element={<Auth />} />
-          <Route path="/become-seller" element={<BecomeSeller />} />
-        </Route>
+        <Route path="/login" element={<Auth />} />
+        <Route path="/become-seller" element={<BecomeSeller />} />
 
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/products/:categoryId" element={<Product />} />
