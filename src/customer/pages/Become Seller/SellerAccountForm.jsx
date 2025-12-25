@@ -195,7 +195,9 @@ const SellerAccountForm = () => {
   const handleSubmit = async () => {
     console.log("Formik Values", formik.values);
 
-    setLoading(true);
+    // setLoading(true);
+    setActiveStep((prev) => prev + 1);
+
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
@@ -210,12 +212,10 @@ const SellerAccountForm = () => {
 
       console.log("seller data", data);
       toast.success("OTP Sent!", { autoClose: 1300 });
-      
     } catch (error) {
       console.error(error);
     } finally {
-      setActiveStep((prev) => prev + 1);
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
