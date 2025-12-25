@@ -72,7 +72,7 @@ const ProductDetails = () => {
   );
 
   // check if product already exists in wishlist
-  const wishlistItem = wishlist.wishlistItems.find(
+  const wishlistItem = wishlist?.wishlistItems?.find(
     (item) => item.product.id == productId
   );
 
