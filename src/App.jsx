@@ -39,7 +39,7 @@ const App = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = "auto";
-    }, 4000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
