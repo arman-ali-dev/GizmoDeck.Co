@@ -30,43 +30,21 @@ import PageLoader from "./components/PageLoader";
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
-
-  const dashboardPaths = ["/seller", "/admin", "/account"];
-
-  const isDashboardRoute = dashboardPaths.some((path) =>
-    location.pathname.startsWith(path)
-  );
-
-  const [dashboardLoaded, setDashboardLoaded] = useState(false);
-
   useEffect(() => {
-    if (isDashboardRoute) {
-      if (!dashboardLoaded) {
-        setLoading(true);
-        document.body.style.overflow = "hidden";
+    if (location.pathname === "/") {
+      setLoading(true);
+      document.body.style.overflow = "hidden";
 
-        const timer = setTimeout(() => {
-          setLoading(false);
-          document.body.style.overflow = "auto";
-          setDashboardLoaded(true);
-        }, 1500);
+      const timer = setTimeout(() => {
+        setLoading(false);
+        document.body.style.overflow = "auto";
+      }, 1500);
 
-        return () => clearTimeout(timer);
-      }
-
-      setLoading(false);
-      return;
+      return () => clearTimeout(timer);
     }
 
-    setLoading(true);
-    document.body.style.overflow = "hidden";
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-      document.body.style.overflow = "auto";
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    setLoading(false);
+    document.body.style.overflow = "auto";
   }, [location.pathname]);
 
   const hideHeaderPaths = [
