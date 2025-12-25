@@ -210,10 +210,11 @@ const SellerAccountForm = () => {
 
       console.log("seller data", data);
       toast.success("OTP Sent!", { autoClose: 1300 });
-      setActiveStep((prev) => prev + 1);
+      
     } catch (error) {
       console.error(error);
     } finally {
+      setActiveStep((prev) => prev + 1);
       setLoading(false);
     }
   };
