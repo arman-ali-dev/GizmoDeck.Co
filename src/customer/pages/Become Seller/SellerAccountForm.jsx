@@ -195,9 +195,7 @@ const SellerAccountForm = () => {
   const handleSubmit = async () => {
     console.log("Formik Values", formik.values);
 
-    // setLoading(true);
-    setActiveStep((prev) => prev + 1);
-
+    setLoading(true);
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
@@ -215,7 +213,8 @@ const SellerAccountForm = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      // setLoading(false);
+      setActiveStep((prev) => prev + 1);
+      setLoading(false);
     }
   };
 
