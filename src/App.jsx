@@ -31,15 +31,40 @@ const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
+  const dashboardPaths = ["/seller", "/admin", "/account"];
 
+  const isDashboardRoute = dashboardPaths.some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  const [dashboardLoaded, setDashboardLoaded] = useState(false);
+
+  useEffect(() => {
+    if (isDashboardRoute) {
+      if (!dashboardLoaded) {
+        setLoading(true);
+        document.body.style.overflow = "hidden";
+
+        const timer = setTimeout(() => {
+          setLoading(false);
+          document.body.style.overflow = "auto";
+          setDashboardLoaded(true);
+        }, 1500);
+
+        return () => clearTimeout(timer);
+      }
+
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
     document.body.style.overflow = "hidden";
 
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = "auto";
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
