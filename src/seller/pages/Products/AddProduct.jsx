@@ -84,8 +84,8 @@ const AddProduct = () => {
         id: "",
       },
 
-      isFeatured: false,
-      isBestSeller: false,
+      featured: false,
+      bestSeller: false,
 
       variants: [
         {
@@ -555,12 +555,12 @@ const AddProduct = () => {
               type="radio"
               name="productType"
               value="featured"
-              checked={formik.values.isFeatured}
+              checked={formik.values.featured}
               onChange={() =>
                 formik.setValues({
                   ...formik.values,
-                  isFeatured: true,
-                  isBestSeller: false,
+                  featured: true,
+                  bestSeller: false,
                 })
               }
             />
@@ -572,12 +572,12 @@ const AddProduct = () => {
               type="radio"
               name="productType"
               value="bestSeller"
-              checked={formik.values.isBestSeller}
+              checked={formik.values.bestSeller}
               onChange={() =>
                 formik.setValues({
                   ...formik.values,
-                  isFeatured: false,
-                  isBestSeller: true,
+                  featured: false,
+                  bestSeller: true,
                 })
               }
             />
