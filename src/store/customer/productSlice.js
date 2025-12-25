@@ -32,6 +32,7 @@ export const fetchFeaturedProducts = createAsyncThunk(
         "https://gizmodeckco-server-production.up.railway.app/api/products/all/featured"
       );
 
+      console.log("products data", data);
       return data;
     } catch (err) {
       console.log(err);
