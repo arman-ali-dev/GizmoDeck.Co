@@ -84,6 +84,9 @@ const AddProduct = () => {
         id: "",
       },
 
+      isFeatured: false,
+      isBestSeller: false,
+
       variants: [
         {
           images: [],
@@ -543,6 +546,44 @@ const AddProduct = () => {
             </li>
           ))}
         </ul>
+
+        <div className="mt-4">
+          <p className="font-medium mb-2">Product Type</p>
+
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="productType"
+              value="featured"
+              checked={formik.values.isFeatured}
+              onChange={() =>
+                formik.setValues({
+                  ...formik.values,
+                  isFeatured: true,
+                  isBestSeller: false,
+                })
+              }
+            />
+            Featured Product
+          </label>
+
+          <label className="flex items-center gap-2 mt-2">
+            <input
+              type="radio"
+              name="productType"
+              value="bestSeller"
+              checked={formik.values.isBestSeller}
+              onChange={() =>
+                formik.setValues({
+                  ...formik.values,
+                  isFeatured: false,
+                  isBestSeller: true,
+                })
+              }
+            />
+            Best Seller
+          </label>
+        </div>
 
         <Button
           type="submit"
