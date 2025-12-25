@@ -17,6 +17,7 @@ import shopping from "../../../assets/shopping.png";
 import easyReturn from "../../../assets/return.png";
 import premium from "../../../assets/premium.png";
 import LaptopDealImage from "../../../assets/laptop-deal.png";
+import { fetchWishlistItems } from "../../../store/customer/wishlistSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Home = () => {
     if (token) {
       dispatch(fetchUserProfile());
       dispatch(fetchCart());
+      dispatch(fetchWishlistItems());
     }
 
     dispatch(fetchCategories());
