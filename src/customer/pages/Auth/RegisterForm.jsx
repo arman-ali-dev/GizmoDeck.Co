@@ -29,7 +29,7 @@ const RegisterForm = () => {
       phoneNumber: "",
       otp: "",
       fullName: "",
-      role: "ADMIN",
+      role: "CUSTOMER",
     },
 
     onSubmit: async (values) => {
