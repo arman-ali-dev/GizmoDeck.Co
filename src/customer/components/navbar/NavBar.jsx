@@ -310,25 +310,25 @@ const CategorySkeleton = () => {
   return (
     <div className="flex gap-20">
       <ul className="space-y-3 animate-pulse">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
         ))}
       </ul>
 
       <ul className="space-y-3 animate-pulse">
-        {[1, 2, 3, 4, 5].map((i) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
         ))}
       </ul>
 
       <ul className="space-y-3 animate-pulse">
-        {[1, 2, 3, 4, 5].map((i) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
         ))}
       </ul>
 
       <ul className="space-y-3 animate-pulse">
-        {[1, 2, 3, 4, 5].map((i) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
           <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
         ))}
       </ul>
