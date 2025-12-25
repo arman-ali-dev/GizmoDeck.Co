@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
     (state) => state.wishlist
   );
 
-  const wishlistItem = wishlist.wishlistItems.find(
+  const wishlistItem = wishlist?.wishlistItems?.find(
     (item) => item.product.id == product?.id
   );
 
