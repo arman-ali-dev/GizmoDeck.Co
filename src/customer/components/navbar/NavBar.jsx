@@ -27,7 +27,7 @@ const NavBar = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const dispatch = useDispatch();
-  const { subcategories } = useSelector((state) => state.category);
+  const { subcategories, loadingSub } = useSelector((state) => state.category);
   const { isAuthenticated } = useSelector((state) => state.auth);
   const closeTimeoutRef = useRef(null);
 
@@ -244,23 +244,27 @@ const NavBar = () => {
           onMouseLeave={handleCategoryMouseLeave}
           sx={{ zIndex: 20 }}
           className="categorySheet absolute top-[4.4rem] left-5 right-5 md:left-20 md:right-20 
-               bg-white border border-gray-300 p-5 rounded-lg shadow-lg"
+         bg-white border border-gray-300 p-5 rounded-lg shadow-lg"
         >
           <h2 className="text-lg font-semibold text-gray-800 capitalize mb-3">
             {activeCategory}
           </h2>
 
-          <ul className="space-y-2">
-            {subcategories?.map((sub) => (
-              <li
-                key={sub.id}
-                className="text-[15px] text-gray-700 hover:text-black cursor-pointer 
-                     hover:font-medium transition-all"
-              >
-                {sub.name}
-              </li>
-            ))}
-          </ul>
+          {loadingSub ? (
+            <CategorySkeleton />
+          ) : (
+            <ul className="space-y-2">
+              {subcategories?.map((sub) => (
+                <li
+                  key={sub.id}
+                  className="text-[15px] text-gray-700 hover:text-black cursor-pointer 
+                 hover:font-medium transition-all"
+                >
+                  {sub.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </Box>
       )}
 
@@ -299,6 +303,16 @@ const NavBar = () => {
         </Box>
       </Drawer>
     </Box>
+  );
+};
+
+const CategorySkeleton = () => {
+  return (
+    <ul className="space-y-3 animate-pulse">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <li key={i} className="h-4 w-40 bg-gray-200 rounded" />
+      ))}
+    </ul>
   );
 };
 
