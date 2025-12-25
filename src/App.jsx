@@ -38,7 +38,7 @@ const App = () => {
       const timer = setTimeout(() => {
         setLoading(false);
         document.body.style.overflow = "auto";
-      }, 1500);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
