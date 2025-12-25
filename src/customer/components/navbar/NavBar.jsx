@@ -308,11 +308,31 @@ const NavBar = () => {
 
 const CategorySkeleton = () => {
   return (
-    <ul className="space-y-3 animate-pulse">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <li key={i} className="h-4 w-40 bg-gray-200 rounded" />
-      ))}
-    </ul>
+    <div className="flex gap-20">
+      <ul className="space-y-3 animate-pulse">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
+        ))}
+      </ul>
+
+      <ul className="space-y-3 animate-pulse">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
+        ))}
+      </ul>
+
+      <ul className="space-y-3 animate-pulse">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
+        ))}
+      </ul>
+
+      <ul className="space-y-3 animate-pulse">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <li key={i} className="h-2 w-20 bg-gray-200 rounded" />
+        ))}
+      </ul>
+    </div>
   );
 };
 
