@@ -14,34 +14,42 @@ import homeAppliance from "../../../../assets/home-appliance.png";
 
 const categories = [
   {
+    id: 1,
     icon: tshirt,
     label: "Men's Fashion",
   },
   {
+    id: 2,
     icon: dress,
     label: "Women's Fashion",
   },
   {
+    id: 3,
     icon: electronic,
     label: "Electronics",
   },
   {
+    id: 4,
     icon: furniture,
     label: "Furniture",
   },
   {
+    id: 5,
     icon: grocery,
     label: "Grocery",
   },
   {
+    id: 6,
     icon: slippers,
     label: "Footwear",
   },
   {
+    id: 7,
     icon: sport,
     label: "Sports & Fitness",
   },
   {
+    id: 8,
     icon: homeAppliance,
     label: "Home Appliances",
   },
