@@ -22,7 +22,6 @@ import {
   fetchSellerProducts,
 } from "../../../store/seller/productSlice";
 
-
 export default function ProductTable() {
   const dispatch = useDispatch();
 
@@ -166,7 +165,10 @@ export default function ProductTable() {
                       </div>
                     </TableCell>
 
-                    <TableCell>{product.name}</TableCell>
+                    <TableCell>
+                      {product.name?.split(" ").slice(0, 4).join(" ") +
+                        (product.name?.split(" ").length > 6 ? "..." : "")}
+                    </TableCell>
 
                     <TableCell align="right">{`₹${variant.mrpPrice}`}</TableCell>
 
