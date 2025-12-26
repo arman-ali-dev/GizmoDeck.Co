@@ -176,31 +176,39 @@ const AddProduct = () => {
     setSpecValue("");
   };
 
-  const removeSpec = (index) => {
-    const updated = [...formik.values.specifications];
+  const removeSpec = (vIndex, index) => {
+    const updated = [...formik.values.variants[vIndex].specifications];
+
     updated.splice(index, 1);
-    formik.setFieldValue("specifications", updated);
+
+    formik.setFieldValue(`variants[${vIndex}].specifications`, updated);
   };
 
   const [feature, setFeature] = useState("");
 
-  const addFeature = () => {
+  const addFeature = (vIndex) => {
     const cleanedFeature = feature.trim();
     if (!cleanedFeature) return;
 
-    const currentFeatures = formik.values.keyFeatures || [];
+    const currentFeatures = formik.values.variants[vIndex].keyFeatures || [];
 
+    // prevent duplicates
     if (currentFeatures.includes(cleanedFeature)) return;
 
-    formik.setFieldValue("features", [...currentFeatures, cleanedFeature]);
+    formik.setFieldValue(`variants[${vIndex}].keyFeatures`, [
+      ...currentFeatures,
+      cleanedFeature,
+    ]);
 
     setFeature("");
   };
 
-  const removeFeature = (index) => {
-    const updated = [...formik.values.keyFeatures];
+  const removeFeature = (vIndex, index) => {
+    const updated = [...formik.values.variants[vIndex].keyFeatures];
+
     updated.splice(index, 1);
-    formik.setFieldValue("features", updated);
+
+    formik.setFieldValue(`variants[${vIndex}].keyFeatures`, updated);
   };
 
   // All Categories
@@ -489,7 +497,7 @@ const AddProduct = () => {
                     sx={{
                       background: "black",
                     }}
-                    onClick={addSpecification}
+                    onClick={() => addSpecification(vIndex)}
                   >
                     Add
                   </Button>
@@ -506,7 +514,10 @@ const AddProduct = () => {
                       <span>
                         {spec.key}: {spec.value}
                       </span>
-                      <IconButton size="small" onClick={() => removeSpec(i)}>
+                      <IconButton
+                        size="small"
+                        onClick={() => removeSpec(vIndex, i)}
+                      >
                         <CloseIcon fontSize="small" />
                       </IconButton>
                     </div>
@@ -527,7 +538,7 @@ const AddProduct = () => {
                   <Button
                     variant="contained"
                     sx={{ background: "black" }}
-                    onClick={addFeature}
+                    onClick={() => addFeature(vIndex)}
                   >
                     Add
                   </Button>
@@ -538,7 +549,10 @@ const AddProduct = () => {
                 {formik.values.variants[vIndex].keyFeatures.map((f, i) => (
                   <li key={i} className="flex justify-between items-center">
                     {f}
-                    <IconButton size="small" onClick={() => removeFeature(i)}>
+                    <IconButton
+                      size="small"
+                      onClick={() => removeFeature(vIndex, i)}
+                    >
                       <CloseIcon fontSize="small" />
                     </IconButton>
                   </li>
