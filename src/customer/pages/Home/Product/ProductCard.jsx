@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
       className="group mt-2 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
     >
       <div
-        className="card relative h-[300px] overflow-hidden rounded-xl"
+        className="card relative lg:h-[300px] h-[220px] overflow-hidden rounded-xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
