@@ -212,7 +212,7 @@ const LoginForm = () => {
               disabled={resendTimer === 0}
             >
               {isLoading ? (
-                <CircularProgress size={22} sx={{ color: "#fff" }} />
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
               ) : (
                 <span className="font-medium text-[13px] lg:text-[14px]">
                   Login
