@@ -59,12 +59,12 @@ const ProductCard = ({ product }) => {
       className="group mt-2 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
     >
       <div
-        className="card relative lg:h-[300px] h-[220px] overflow-hidden rounded-xl"
+        className="card relative lg:h-[300px] h-[200px] overflow-hidden rounded-xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div
-          className="card-images-wrapper lg:h-[300px] h-[220px] flex justify-center items-center bg-[#f8f8f8] transition-transform duration-500 ease-in-out"
+          className="card-images-wrapper lg:h-[300px] h-[200px] flex justify-center items-center bg-[#f8f8f8] transition-transform duration-500 ease-in-out"
           style={{
             transform: `translateX(-${currentImage * (100 / images.length)}%)`,
             width: `${images.length * 100}%`,
