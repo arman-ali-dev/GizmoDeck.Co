@@ -120,7 +120,7 @@ const ProductCard = ({ product }) => {
             {product?.name?.split(" ").length > 4 && " ..."}
           </h1>
           <p className="lg:text-[15px] text-[12px] text-gray-600 line-clamp-2">
-            {product?.description?.split(" ").slice(0, 4).join(" ")}
+            {product?.description?.split(" ").slice(0, 3).join(" ")}
             {product?.description?.split(" ").length > 4 && " ..."}
           </p>
 
