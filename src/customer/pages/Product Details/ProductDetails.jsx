@@ -135,8 +135,8 @@ const ProductDetails = () => {
               </h1>
 
               <p className="text-gray-500 lg:text-[14px] md:text-[14px] text-[12px]">
-                {productDetails?.description?.length > 100
-                  ? productDetails?.description.slice(0, 100) + "..."
+                {productDetails?.description?.length > 150
+                  ? productDetails?.description.slice(0, 150) + "..."
                   : productDetails?.description}
               </p>
 
