@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div
-          className="card-images-wrapper py-10 bg-[#f8f8f8] flex transition-transform duration-500 ease-in-out"
+          className="card-images-wrapper h-[280px] flex justify-center items-center bg-[#f8f8f8] transition-transform duration-500 ease-in-out"
           style={{
             transform: `translateX(-${currentImage * (100 / images.length)}%)`,
             width: `${images.length * 100}%`,
@@ -75,7 +75,7 @@ const ProductCard = ({ product }) => {
               key={index}
               src={img}
               alt={`${product?.name}-${index}`}
-              className="card-media lg:h-[230px]   h-[170px]  object-cover w-full"
+              className="card-media   object-contain w-full"
               style={{ width: `${100 / images.length}%` }}
             />
           ))}
