@@ -115,6 +115,8 @@ const AddProduct = () => {
     },
   });
 
+  const { addProductLoading } = useSelector((state) => state.sellerProduct);
+
   const addNewVariant = () => {
     formik.setFieldValue("variants", [
       ...formik.values.variants,
@@ -619,10 +621,15 @@ const AddProduct = () => {
             color: "white",
             textTransform: "capitalize",
             paddingY: "12px",
+            height: "48px",
           }}
           fullWidth
         >
-          <span> + Add Product</span>
+          {addProductLoading ? (
+            <CircularProgress color="white" size={13} />
+          ) : (
+            <span> + Add Product</span>
+          )}
         </Button>
       </form>
     </div>
