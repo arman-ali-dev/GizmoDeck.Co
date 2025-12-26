@@ -103,17 +103,15 @@ const AddProduct = () => {
     validationSchema,
 
     onSubmit: (values) => {
-      console.log("Values", values);
-
-      // dispatch(createSellerProduct(values))
-      //   .unwrap()
-      //   .then((res) => {
-      //     toast.success("Product added successfully!", { autoClose: 1200 });
-      //     formik.resetForm();
-      //   })
-      //   .catch((err) => {
-      //     toast.error(err || "Something went wrong", { autoClose: 1200 });
-      //   });
+      dispatch(createSellerProduct(values))
+        .unwrap()
+        .then((res) => {
+          toast.success("Product added successfully!", { autoClose: 1200 });
+          formik.resetForm();
+        })
+        .catch((err) => {
+          toast.error(err || "Something went wrong", { autoClose: 1200 });
+        });
     },
   });
 
