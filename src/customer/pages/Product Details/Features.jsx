@@ -1,12 +1,11 @@
-
 import React from "react";
 
 const Features = ({ keyFeatures }) => {
   // First 5 features
-  const firstColumn = keyFeatures.slice(0, 5);
+  const firstColumn = keyFeatures.slice(0, 6);
 
   // Remaining features
-  const secondColumn = keyFeatures.slice(5);
+  const secondColumn = keyFeatures.slice(6);
 
   return (
     <div className="bg-gray-100 mt-5 lg:px-6 px-4 py-4 rounded-2xl">
