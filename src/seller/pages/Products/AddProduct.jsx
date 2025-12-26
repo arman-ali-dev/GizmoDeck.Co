@@ -95,24 +95,25 @@ const AddProduct = () => {
           stock: "",
           color: "",
           size: "",
+          specifications: [],
+          keyFeatures: [],
         },
       ],
-
-      specifications: [],
-      features: [],
     },
-    // validationSchema,
+    validationSchema,
 
     onSubmit: (values) => {
-      dispatch(createSellerProduct(values))
-        .unwrap()
-        .then((res) => {
-          toast.success("Product added successfully!", { autoClose: 1200 });
-          formik.resetForm();
-        })
-        .catch((err) => {
-          toast.error(err || "Something went wrong", { autoClose: 1200 });
-        });
+      console.log("Values", values);
+
+      // dispatch(createSellerProduct(values))
+      //   .unwrap()
+      //   .then((res) => {
+      //     toast.success("Product added successfully!", { autoClose: 1200 });
+      //     formik.resetForm();
+      //   })
+      //   .catch((err) => {
+      //     toast.error(err || "Something went wrong", { autoClose: 1200 });
+      //   });
     },
   });
 
@@ -126,6 +127,8 @@ const AddProduct = () => {
         stock: "",
         color: "",
         size: "",
+        specifications: [],
+        keyFeatures: [],
       },
     ]);
   };
@@ -156,12 +159,17 @@ const AddProduct = () => {
   const [specKey, setSpecKey] = useState("");
   const [specValue, setSpecValue] = useState("");
 
-  const addSpecification = () => {
-    if (!specKey || !specValue) return;
+  const addSpecification = (vIndex) => {
+    if (!specKey.trim() || !specValue.trim()) return;
 
-    formik.setFieldValue("specifications", [
-      ...formik.values.specifications,
-      { key: specKey, value: specValue },
+    const currentSpecs = formik.values.variants[vIndex].specifications || [];
+
+    formik.setFieldValue(`variants[${vIndex}].specifications`, [
+      ...currentSpecs,
+      {
+        key: specKey.trim(),
+        value: specValue.trim(),
+      },
     ]);
 
     setSpecKey("");
@@ -177,15 +185,20 @@ const AddProduct = () => {
   const [feature, setFeature] = useState("");
 
   const addFeature = () => {
-    if (!feature.trim()) return;
+    const cleanedFeature = feature.trim();
+    if (!cleanedFeature) return;
 
-    formik.setFieldValue("features", [...formik.values.features, feature]);
+    const currentFeatures = formik.values.keyFeatures || [];
+
+    if (currentFeatures.includes(cleanedFeature)) return;
+
+    formik.setFieldValue("features", [...currentFeatures, cleanedFeature]);
 
     setFeature("");
   };
 
   const removeFeature = (index) => {
-    const updated = [...formik.values.features];
+    const updated = [...formik.values.keyFeatures];
     updated.splice(index, 1);
     formik.setFieldValue("features", updated);
   };
@@ -452,6 +465,85 @@ const AddProduct = () => {
                   />
                 </div>
               </div>
+
+              <div>
+                <h2 className="text-lg font-semibold mt-6">Specifications</h2>
+
+                <div className="flex gap-4 mt-4">
+                  <TextField
+                    fullWidth
+                    label="Key"
+                    value={specKey}
+                    onChange={(e) => setSpecKey(e.target.value)}
+                  />
+
+                  <TextField
+                    fullWidth
+                    label="Value"
+                    value={specValue}
+                    onChange={(e) => setSpecValue(e.target.value)}
+                  />
+
+                  <Button
+                    variant="contained"
+                    sx={{
+                      background: "black",
+                    }}
+                    onClick={addSpecification}
+                  >
+                    Add
+                  </Button>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                {formik.values.variants[vIndex].specifications.map(
+                  (spec, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center p-2 border rounded-md"
+                    >
+                      <span>
+                        {spec.key}: {spec.value}
+                      </span>
+                      <IconButton size="small" onClick={() => removeSpec(i)}>
+                        <CloseIcon fontSize="small" />
+                      </IconButton>
+                    </div>
+                  )
+                )}
+              </div>
+
+              <div>
+                <h2 className="text-lg font-semibold">Key Features</h2>
+
+                <div className="flex gap-4 mt-4">
+                  <TextField
+                    fullWidth
+                    label="Feature"
+                    value={feature}
+                    onChange={(e) => setFeature(e.target.value)}
+                  />
+                  <Button
+                    variant="contained"
+                    sx={{ background: "black" }}
+                    onClick={addFeature}
+                  >
+                    Add
+                  </Button>
+                </div>
+              </div>
+
+              <ul className="list-disc ml-5">
+                {formik.values.variants[vIndex].keyFeatures.map((f, i) => (
+                  <li key={i} className="flex justify-between items-center">
+                    {f}
+                    <IconButton size="small" onClick={() => removeFeature(i)}>
+                      <CloseIcon fontSize="small" />
+                    </IconButton>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -469,83 +561,6 @@ const AddProduct = () => {
         >
           <span> + Add Variant</span>
         </Button>
-
-        <div>
-          <h2 className="text-lg font-semibold mt-6">Specifications</h2>
-
-          <div className="flex gap-4 mt-4">
-            <TextField
-              fullWidth
-              label="Key"
-              value={specKey}
-              onChange={(e) => setSpecKey(e.target.value)}
-            />
-
-            <TextField
-              fullWidth
-              label="Value"
-              value={specValue}
-              onChange={(e) => setSpecValue(e.target.value)}
-            />
-
-            <Button
-              variant="contained"
-              sx={{
-                background: "black",
-              }}
-              onClick={addSpecification}
-            >
-              Add
-            </Button>
-          </div>
-        </div>
-
-        <div className="space-y-1">
-          {formik.values.specifications.map((spec, i) => (
-            <div
-              key={i}
-              className="flex justify-between items-center p-2 border rounded-md"
-            >
-              <span>
-                {spec.key}: {spec.value}
-              </span>
-              <IconButton size="small" onClick={() => removeSpec(i)}>
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            </div>
-          ))}
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold">Key Features</h2>
-
-          <div className="flex gap-4 mt-4">
-            <TextField
-              fullWidth
-              label="Feature"
-              value={feature}
-              onChange={(e) => setFeature(e.target.value)}
-            />
-            <Button
-              variant="contained"
-              sx={{ background: "black" }}
-              onClick={addFeature}
-            >
-              Add
-            </Button>
-          </div>
-        </div>
-
-        <ul className="list-disc ml-5">
-          {formik.values.features.map((f, i) => (
-            <li key={i} className="flex justify-between items-center">
-              {f}
-              <IconButton size="small" onClick={() => removeFeature(i)}>
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-4">
           <p className="font-medium mb-2">Product Type</p>
