@@ -95,7 +95,7 @@ const AddProduct = () => {
           stock: "",
           color: "",
           size: "",
-          specifications: [],
+          specifications: {},
           keyFeatures: [],
         },
       ],
@@ -125,7 +125,7 @@ const AddProduct = () => {
         stock: "",
         color: "",
         size: "",
-        specifications: [],
+        specifications: {},
         keyFeatures: [],
       },
     ]);
@@ -160,26 +160,25 @@ const AddProduct = () => {
   const addSpecification = (vIndex) => {
     if (!specKey.trim() || !specValue.trim()) return;
 
-    const currentSpecs = formik.values.variants[vIndex].specifications || [];
+    const currentSpecs = formik.values.variants[vIndex].specifications || {};
 
-    formik.setFieldValue(`variants[${vIndex}].specifications`, [
+    formik.setFieldValue(`variants[${vIndex}].specifications`, {
       ...currentSpecs,
-      {
-        key: specKey.trim(),
-        value: specValue.trim(),
-      },
-    ]);
+      [specKey.trim()]: specValue.trim(),
+    });
 
     setSpecKey("");
     setSpecValue("");
   };
 
-  const removeSpec = (vIndex, index) => {
-    const updated = [...formik.values.variants[vIndex].specifications];
+  const removeSpec = (vIndex, key) => {
+    const currentSpecs = {
+      ...formik.values.variants[vIndex].specifications,
+    };
 
-    updated.splice(index, 1);
+    delete currentSpecs[key];
 
-    formik.setFieldValue(`variants[${vIndex}].specifications`, updated);
+    formik.setFieldValue(`variants[${vIndex}].specifications`, currentSpecs);
   };
 
   const [feature, setFeature] = useState("");
@@ -503,24 +502,24 @@ const AddProduct = () => {
               </div>
 
               <div className="space-y-1">
-                {formik.values.variants[vIndex].specifications.map(
-                  (spec, i) => (
-                    <div
-                      key={i}
-                      className="flex justify-between items-center p-2 border rounded-md"
+                {Object.entries(
+                  formik.values.variants[vIndex].specifications || {}
+                ).map(([key, value]) => (
+                  <div
+                    key={key}
+                    className="flex justify-between items-center p-2 border rounded-md"
+                  >
+                    <span>
+                      {key}: {value}
+                    </span>
+                    <IconButton
+                      size="small"
+                      onClick={() => removeSpec(vIndex, key)}
                     >
-                      <span>
-                        {spec.key}: {spec.value}
-                      </span>
-                      <IconButton
-                        size="small"
-                        onClick={() => removeSpec(vIndex, i)}
-                      >
-                        <CloseIcon fontSize="small" />
-                      </IconButton>
-                    </div>
-                  )
-                )}
+                      <CloseIcon fontSize="small" />
+                    </IconButton>
+                  </div>
+                ))}
               </div>
 
               <div>

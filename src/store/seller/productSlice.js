@@ -47,7 +47,7 @@ export const createSellerProduct = createAsyncThunk(
       console.log("seller product: ", error);
 
       return rejectWithValue(
-        error.response?.data?.message || "Failed to create product"
+        error.response?.data?.message || "Failed to rceate product"
       );
     }
   }
