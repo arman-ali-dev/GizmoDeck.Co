@@ -17,8 +17,8 @@ const TopProducts = () => {
 
   const products = Array.isArray(featuredProducts) ? featuredProducts : [];
 
-  const firstSliderProducts = products.slice(0, 5);
-  const secondSliderProducts = products.slice(5, 10);
+  const firstSliderProducts = products.slice(0, 6);
+  const secondSliderProducts = products.slice(6, 12);
 
   return (
     <>
