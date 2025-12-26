@@ -136,8 +136,8 @@ const ProductDetails = () => {
 
               <p className="text-gray-500 lg:text-[14px] md:text-[14px] text-[12px]">
                 {productDetails?.description?.length > 100
-                  ? productDetails.description.slice(0, 100) + "..."
-                  : productDetails.description}
+                  ? productDetails?.description.slice(0, 100) + "..."
+                  : productDetails?.description}
               </p>
 
               <div className="flex justify-between items-center py-2 rounded-sm border border-gray-300 w-[150px] lg:w-[180px] px-3 mt-3 lg:mt-5">
