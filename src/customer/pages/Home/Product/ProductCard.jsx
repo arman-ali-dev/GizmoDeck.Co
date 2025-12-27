@@ -102,13 +102,13 @@ const ProductCard = ({ product }) => {
           ) : wishlistItem ? (
             <FavoriteIcon
               sx={{
-                color: "red",
+                color: "black",
                 fontSize: { xs: 16, lg: 18 },
               }}
             />
           ) : (
             <FavoriteBorderIcon
-              sx={{ color: grey[700], fontSize: { xs: 16, lg: 18 } }}
+              sx={{ color: grey[900], fontSize: { xs: 16, lg: 18 } }}
             />
           )}
         </IconButton>
