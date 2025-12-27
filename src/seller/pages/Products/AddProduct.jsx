@@ -616,6 +616,7 @@ const AddProduct = () => {
         <Button
           type="submit"
           variant="contained"
+          disabled={addProductLoading}
           sx={{
             backgroundColor: "black",
             color: "white",
