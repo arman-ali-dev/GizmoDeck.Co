@@ -166,8 +166,8 @@ export default function ProductTable() {
                     </TableCell>
 
                     <TableCell>
-                      {product.name?.split(" ").slice(0, 3).join(" ") +
-                        (product.name?.split(" ").length > 3 ? "..." : "")}
+                      {product.name?.split(" ").slice(0, 2).join(" ") +
+                        (product.name?.split(" ").length > 2 ? "..." : "")}
                     </TableCell>
 
                     <TableCell align="right">{`₹${variant.mrpPrice}`}</TableCell>

@@ -96,9 +96,9 @@ const ProductCard = ({ product }) => {
           }}
         >
           {addingItemId === product?.id ? (
-            <CircularProgress size={13} />
+            <CircularProgress color="black" size={13} />
           ) : removingItemId === wishlistItem?.id ? (
-            <CircularProgress size={13} />
+            <CircularProgress color="black" size={13} />
           ) : wishlistItem ? (
             <FavoriteIcon
               sx={{
