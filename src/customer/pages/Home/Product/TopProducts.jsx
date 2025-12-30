@@ -112,7 +112,7 @@ const TopProducts = () => {
         <div className="md:hidden text-center mt-5">
           <Link
             to="/products"
-            className="border-gray-700 text-gray-700 font-medium border lg:px-6 px-4 lg:py-2 py-1 rounded-full text-[11px] lg:text-[14px]"
+            className="border-gray-700 text-gray-700 font-medium border lg:px-6 px-4 lg:py-2 py-1.5 rounded-full text-[11px] lg:text-[14px]"
           >
             View All
           </Link>

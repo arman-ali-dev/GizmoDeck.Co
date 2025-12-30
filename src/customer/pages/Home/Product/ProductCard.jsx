@@ -139,11 +139,11 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div className="mt-4 flex lg:gap-3 gap-1 mb-2 ">
-          <button className="block w-full cursor-pointer py-2 rounded-full border text-[12px] lg:text-[14px]">
+          <button className="block w-full cursor-pointer py-1.5 rounded-full border text-[11px] lg:text-[14px]">
             Add to Cart
           </button>
 
-          <button className="block w-full bg-black cursor-pointer text-white py-2 rounded-full border text-[12px] lg:text-[14px]">
+          <button className="block w-full bg-black cursor-pointer text-white py-1.5 rounded-full border text-[11px] lg:text-[14px]">
             Buy Now
           </button>
         </div>
