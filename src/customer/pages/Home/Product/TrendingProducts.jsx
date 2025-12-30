@@ -40,6 +40,9 @@ const TrendingProducts = () => {
             >
               View All
             </Link>
+
+            {/* mysqldump -h mysql.railway.internal -u root -p railway > backup.sql
+             */}
           </div>
         </div>
 

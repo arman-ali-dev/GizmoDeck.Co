@@ -9,7 +9,7 @@ import slipperImage from "../../../../assets/slipper.jpeg";
 const CategoryGrid = () => {
   return (
     <>
-      <div className="grid grid-cols-12 grid-rows-12 xl:gap-2 gap-2 md:h-[600px] h-[530px] px-4 lg:px-12  xl:px-12 lg:pt-10 pt-4 xl:pb-4 pb-6">
+      <div className="grid grid-cols-12 grid-rows-12 xl:gap-2 gap-2 md:h-[600px] h-[450px] px-4 lg:px-12  xl:px-12 lg:pt-10 pt-4 xl:pb-4 pb-6">
         <div className="lg:col-span-3 col-span-4 row-span-12">
           <img
             className="h-full w-full object-cover object-top rounded-md"
