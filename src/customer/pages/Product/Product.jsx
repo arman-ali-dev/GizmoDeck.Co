@@ -92,7 +92,9 @@ const Product = () => {
   }, [searchResults]);
 
   // FILTER
-  const { filteredProducts } = useSelector((state) => state.product);
+  const { filteredProducts, loadingFilters } = useSelector(
+    (state) => state.product
+  );
 
   const productsToShow =
     filteredProducts && filteredProducts.length > 0
@@ -106,7 +108,7 @@ const Product = () => {
 
   return (
     <div className="-z-10 pt-10 lg:px-14 px-4">
-      {loadingSearch ? (
+      {loadingSearch && loadingFilters ? (
         <CenterLoader />
       ) : query && searchResults?.length === 0 ? (
         <NoResults query={query} />
@@ -122,7 +124,6 @@ const Product = () => {
           <div className="w-full flex-1  space-y-5">
             <div className="flex justify-between items-center lg:px-9 h-[40px]">
               <div className="relative w-[50%]">
-            
                 <IconButton
                   onClick={() => setShowSidebar(true)}
                   className="lg:hidden"
