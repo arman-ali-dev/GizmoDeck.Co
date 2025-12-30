@@ -19,7 +19,7 @@ const ShopByCategoryCard = ({ category }) => {
           />
         </div>
 
-        <h2 className="text-center lg:mt-2 mt-1 md:text-[14px] text-[11px] font-medium whitespace-nowrap">
+        <h2 className="text-center lg:mt-2 mt-1 md:text-[14px] text-[10px] font-medium whitespace-nowrap">
           {category.label}
         </h2>
       </Link>
