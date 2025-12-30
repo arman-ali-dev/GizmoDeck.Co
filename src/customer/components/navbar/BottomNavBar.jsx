@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import bagIcon from "../../../assets/bag.png";
 import searchIcon from "../../../assets/search.png";
-import heartIcon from "../../../assets/heart.png";
+import heartIcon from "../../../assets/heart2.png";
 import storeIcon from "../../../assets/store.png";
 import userIcon from "../../../assets/user.png";
 
