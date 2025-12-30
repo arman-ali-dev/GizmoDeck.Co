@@ -10,6 +10,7 @@ import bagIcon from "../../../assets/bag.png";
 import searchIcon from "../../../assets/search.png";
 import heartIcon from "../../../assets/heart.png";
 import storeIcon from "../../../assets/store.png";
+import userIcon from "../../../assets/user.png";
 
 const BottomNavBar = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const BottomNavBar = () => {
         </IconButton>
 
         <IconButton>
-          <img className="w-[27px]" src={searchIcon} alt="" />
+          <img src={userIcon} alt="" />
         </IconButton>
 
         <IconButton onClick={() => navigate("/wishlist")}>
