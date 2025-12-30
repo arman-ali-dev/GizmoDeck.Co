@@ -89,7 +89,7 @@ const NavBar = () => {
     ${
       isSticky
         ? "fixed top-0 left-0 z-50 translate-y-0 opacity-100"
-        : "relative -translate-y-2 opacity-100"
+        : "relative  opacity-100"
     }
   `}
       >
@@ -331,7 +331,7 @@ const NavBar = () => {
         </Drawer>
       </Box>
 
-      {isSticky && <div className="h-[50px]" />}
+      {isSticky && <div className="h-[70px]" />}
     </>
   );
 };
