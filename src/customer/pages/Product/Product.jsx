@@ -108,7 +108,7 @@ const Product = () => {
 
   return (
     <div className="-z-10 pt-10 lg:px-14 px-4">
-      {loadingSearch && loadingFilters ? (
+      {loadingSearch || loadingFilters ? (
         <CenterLoader />
       ) : query && searchResults?.length === 0 ? (
         <NoResults query={query} />
