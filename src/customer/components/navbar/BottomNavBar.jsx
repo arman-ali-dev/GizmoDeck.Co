@@ -27,7 +27,7 @@ const BottomNavBar = () => {
         </IconButton>
 
         <IconButton onClick={() => navigate("/wishlist")}>
-          <img src={heartIcon} alt="" />
+          <img className="w-[27px]" src={heartIcon} alt="" />
         </IconButton>
 
         <IconButton
