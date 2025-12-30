@@ -94,6 +94,8 @@ const Product = () => {
   // FILTER
   const { filteredProducts } = useSelector((state) => state.product);
 
+  console.log(filteredProducts, loadingSearch, loadingFilters);
+
   const productsToShow =
     filteredProducts && filteredProducts.length > 0
       ? filteredProducts
