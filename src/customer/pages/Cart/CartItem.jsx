@@ -27,7 +27,7 @@ const CartItem = ({ item }) => {
         <div className="flex lg:p-5 p-3 gap-3">
           <div>
             <img
-              className="lg:w-[100px] w-[110px] h-[100px] object-cover object-top lg:h-[135px] rounded-md"
+              className="lg:w-[100px] w-[120px] h-[90px] object-cover object-top lg:h-[135px] rounded-md"
               src={item?.variant?.images[0]}
               alt="Aeropostale T-Shirt"
             />

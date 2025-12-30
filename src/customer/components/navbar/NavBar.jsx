@@ -66,8 +66,33 @@ const NavBar = () => {
   const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
 
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <Box className="relative w-full border-b border-[#bbb6b6] bg-white shadow-sm">
+    <Box
+      className={`w-full border-b border-[#bbb6b6] bg-white shadow-sm
+    transition-all duration-300 ease-in-out
+    ${
+      isSticky
+        ? "fixed top-0 left-0 z-50 translate-y-0 opacity-100"
+        : "relative -translate-y-2 opacity-100"
+    }
+  `}
+    >
+      {" "}
       <div className="lg:h-[70px] md:h-[60px] h-[50px] flex items-center justify-between px-4 sm:px-6 lg:px-12">
         <Link
           to="/"
@@ -234,7 +259,6 @@ const NavBar = () => {
           )}
         </div>
       </div>
-
       {activeCategory && (
         <Box
           onMouseEnter={() => {
@@ -267,7 +291,6 @@ const NavBar = () => {
           )}
         </Box>
       )}
-
       <Drawer
         anchor="left"
         open={drawerOpen}
