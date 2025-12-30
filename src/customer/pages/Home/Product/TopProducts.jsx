@@ -25,10 +25,10 @@ const TopProducts = () => {
       <section className="xl:px-14 lg:px-8 px-4 lg:py-20 py-10">
         <div className="md:flex text-center md:text-left justify-between items-end lg:mb-10 mb-7">
           <div className="md:w-[80%] xl:w-auto">
-            <h2 className="lg:text-[28px] md:text-[26px] text-[22px] font-semibold">
+            <h2 className="lg:text-[28px] md:text-[26px] text-[20px] font-semibold">
               Featured Products
             </h2>
-            <p className="lg:text-[16px] md:text-[14px] text-[12px] md:w-[70%] lg:w-[70%] text-gray-700 font-medium">
+            <p className="lg:text-[16px] md:text-[14px] text-[11px] md:w-[70%] lg:w-[70%] text-gray-700 font-medium">
               Browse our carefully selected top picks, chosen to match your
               style, preferences, and needs for a seamless shopping experience.
             </p>
@@ -109,7 +109,7 @@ const TopProducts = () => {
             ))
           )}
         </Swiper>
-        <div className="md:hidden text-center">
+        <div className="md:hidden text-center mt-5">
           <Link
             to="/products"
             className="border-gray-700 text-gray-700 font-medium border lg:px-6 px-4 lg:py-2 py-1 rounded-full text-[11px] lg:text-[14px]"
