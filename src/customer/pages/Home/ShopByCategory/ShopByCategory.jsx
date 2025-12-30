@@ -66,7 +66,7 @@ const ShopByCategory = () => {
 
   return (
     <section className="xl:px-12 lg:px-8 px-4 ">
-      <div className="grid xl:grid-cols-8 md:grid-cols-4 grid-cols-4 lg:mt-12 xl:mt-7 md:mt-10 mt-5 md:gap-8 lg:gap-12 gap-4">
+      <div className="grid xl:grid-cols-8 md:grid-cols-4 grid-cols-4 lg:mt-12 xl:mt-7 md:mt-10  md:gap-8 lg:gap-12 gap-4">
         {loading
           ? Array.from({ length: count }).map((_, i) => (
               <div key={i} className="col-span-1 flex flex-col items-center">
