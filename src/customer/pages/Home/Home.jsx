@@ -131,7 +131,7 @@ const Home = () => {
             <h1 className="xl:text-[52px] lg:text-[32px] text-[26px] mt-1 mb-1 text-[#eee] opacity-70 categoryHeading">
               30% OFF
             </h1>
-            <Link className="text-[#000] text-[10px] xl:text-[15px]  bg-[#fff]  xl:px-8 px-5 py-[5px] xl:py-[8px] rounded-full  inline-block  -mt-2">
+            <Link className="text-[#000] text-[11px] xl:text-[15px]  bg-[#fff]  xl:px-8 px-5 py-1.5 xl:py-[8px] rounded-full  inline-block  -mt-2">
               Shop Now
             </Link>
           </div>

@@ -27,7 +27,7 @@ const TrendingProducts = () => {
             <h2 className="lg:text-[28px] md:text-[24px] text-[20px] font-semibold">
               Trending Products
             </h2>
-            <p className="lg:text-[16px] md:text-[14px] text-[12px] md:w-[70%] lg:w-[70%] text-gray-700 font-medium ">
+            <p className="lg:text-[16px] md:text-[14px] text-[11px] md:w-[70%] lg:w-[70%] text-gray-700 font-medium ">
               Browse our carefully selected top picks, chosen to match your
               style, preferences, and needs for a seamless shopping experience.
             </p>
@@ -111,7 +111,7 @@ const TrendingProducts = () => {
             ))
           )}
         </Swiper>
-        <div className="md:hidden text-center ">
+        <div className="md:hidden text-center mt-5">
           <Link
             className="border-gray-700 text-gray-700 font-medium border lg:px-6 
           px-4 lg:py-2 py-1 rounded-full text-[11px] lg:text-[14px]"
