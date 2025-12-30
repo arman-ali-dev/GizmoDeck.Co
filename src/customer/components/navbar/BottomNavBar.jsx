@@ -14,15 +14,15 @@ const BottomNavBar = () => {
     <>
       <div className="py-2.5 bg-white/90 backdrop-blur border-gray-400 border-t flex lg:hidden justify-between z-[999]  px-4 sticky bottom-0 left-0 right-0">
         <IconButton onClick={() => navigate("/cart")}>
-          <img className="w-[24px]" src={bagIcon} alt="" />
+          <img className="w-[22px]" src={bagIcon} alt="" />
         </IconButton>
 
         <IconButton onClick={() => navigate("/account")}>
-          <img className="w-[24px]" src={userIcon} alt="" />
+          <img className="w-[22px]" src={userIcon} alt="" />
         </IconButton>
 
         <IconButton onClick={() => navigate("/wishlist")}>
-          <img className="w-[24px]" src={heartIcon} alt="" />
+          <img className="w-[22px]" src={heartIcon} alt="" />
         </IconButton>
 
         <IconButton
@@ -30,7 +30,7 @@ const BottomNavBar = () => {
             navigate(user?.role == "SELLER" ? "/seller" : "/become-seller")
           }
         >
-          <img className="w-[27px]" src={storeIcon} alt="" />
+          <img className="w-[25px]" src={storeIcon} alt="" />
         </IconButton>
       </div>
     </>
