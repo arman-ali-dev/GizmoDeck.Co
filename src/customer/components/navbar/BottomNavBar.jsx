@@ -17,7 +17,7 @@ const BottomNavBar = () => {
           <img className="w-[24px]" src={bagIcon} alt="" />
         </IconButton>
 
-        <IconButton>
+        <IconButton onClick={() => navigate("/account")}>
           <img className="w-[24px]" src={userIcon} alt="" />
         </IconButton>
 
