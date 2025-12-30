@@ -331,7 +331,7 @@ const NavBar = () => {
         </Drawer>
       </Box>
 
-      {isSticky && <div className="h-[70px]" />}
+      {isSticky && <div className="h-[50px]" />}
     </>
   );
 };
