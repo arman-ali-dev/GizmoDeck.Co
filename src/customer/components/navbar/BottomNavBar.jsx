@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import bagIcon from "../../../assets/parcel.png";
-import heartIcon from "../../../assets/heart2.png";
+import heartIcon from "../../../assets/heart3.png";
 import storeIcon from "../../../assets/store.png";
 import userIcon from "../../../assets/user-2.png";
 
