@@ -212,7 +212,7 @@ const Home = () => {
         <h2 className="lg:text-4xl md:text-[26px] text-[20px] font-semibold lg:mb-4 mb-1 drop-shadow-lg">
           Become a Seller on GizmoDeck.Co
         </h2>
-        <p className="lg:text-[17px] md:text-[14px] text-[10px] md:max-w-xl lg:max-w-2xl lg:mb-6 mb-2.5 px-6 drop-shadow-md">
+        <p className="lg:text-[17px] md:text-[14px] text-[11px] md:max-w-xl lg:max-w-2xl lg:mb-6 mb-2.5 px-6 drop-shadow-md">
           Start your online business journey today. Reach thousands of customers
           across India and grow your brand effortlessly with us.
         </p>
