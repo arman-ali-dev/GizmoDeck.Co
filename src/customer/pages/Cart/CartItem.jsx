@@ -27,17 +27,17 @@ const CartItem = ({ item }) => {
         <div className="flex lg:p-5 p-3 gap-3">
           <div>
             <img
-              className="lg:w-[100px] w-[85px] h-[100px] object-cover object-top lg:h-[135px] rounded-md"
+              className="lg:w-[100px] w-[110px] h-[100px] object-cover object-top lg:h-[135px] rounded-md"
               src={item?.variant?.images[0]}
               alt="Aeropostale T-Shirt"
             />
           </div>
           <div className="lg:space-y-2 space-y-1">
-            <h1 className="font-semibold text-[14px] lg:text-[17px]">
+            <h1 className="font-semibold text-[12px] lg:text-[17px]">
               {item?.product?.name}
             </h1>
 
-            <p className="text-gray-600 font-medium text-[11px] lg:text-sm">
+            <p className="text-gray-600 font-medium text-[10px] lg:text-sm">
               {item?.product?.description?.split(" ").slice(0, 11).join(" ") +
                 " ..."}
             </p>
