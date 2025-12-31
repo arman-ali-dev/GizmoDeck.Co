@@ -36,7 +36,6 @@ const Product = () => {
   const query = searchParams.get("q");
 
   const { categoryId } = useParams();
-  console.log("categoryId", categoryId);
 
   const dispatch = useDispatch();
   const { searchResults, loadingSearch, loadingFilters } = useSelector(
@@ -81,10 +80,7 @@ const Product = () => {
   // Fetch filters based on first product's categoryId
   useEffect(() => {
     if (searchResults.length > 0) {
-      console.log("searchResults", searchResults);
-
       const categoryId = searchResults[0]?.category?.id;
-      console.log("categoryId", categoryId);
 
       dispatch(fetchFilters(categoryId));
     }
