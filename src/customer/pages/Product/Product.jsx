@@ -92,24 +92,23 @@ const Product = () => {
   }, [searchResults]);
 
   // FILTER
-  const { filteredProducts, isFilterApplied } = useSelector(
-    (state) => state.product
-  );
+  const { filteredProducts } = useSelector((state) => state.product);
 
   console.log(filteredProducts, loadingSearch, loadingFilters);
 
-  const productsToShow = isFilterApplied ? filteredProducts : searchResults;
+  const productsToShow =
+    filteredProducts && filteredProducts.length > 0
+      ? filteredProducts
+      : searchResults || [];
 
   const totalPages = Math.ceil(productsToShow.length / pageSize);
   const startIndex = (page - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   const paginatedProducts = productsToShow.slice(startIndex, endIndex);
 
-  const isLoading = loadingSearch || loadingFilters;
-
   return (
     <div className="-z-10 pt-10 lg:px-14 px-4">
-      {isLoading ? (
+      {loadingSearch ? (
         <CenterLoader />
       ) : query && searchResults?.length === 0 ? (
         <NoResults query={query} />

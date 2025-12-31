@@ -251,7 +251,6 @@ const initialState = {
   filteredProducts: [],
   loadingFiltered: false,
   errorFiltered: null,
-  isFilterApplied: false,
 
   categoryProducts: [],
   loadingCategoryProducts: false,
@@ -281,10 +280,6 @@ const productSlice = createSlice({
       state.filteredProducts = [];
       state.loadingFiltered = false;
       state.errorFiltered = null;
-    },
-    applyFilters: (state, action) => {
-      state.filteredProducts = action.payload;
-      state.isFilterApplied = true;
     },
   },
   extraReducers: (builder) => {
@@ -439,5 +434,4 @@ export const {
   clearFilters,
   clearSearchedProducts,
   clearFilteredProduct,
-  applyFilters,
 } = productSlice.actions;
