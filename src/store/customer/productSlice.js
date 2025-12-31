@@ -281,6 +281,22 @@ const productSlice = createSlice({
       state.loadingFiltered = false;
       state.errorFiltered = null;
     },
+    sortProducts: (state, action) => {
+      const { sortBy, ascending } = action.payload;
+
+      // decide active list
+      const list =
+        state.filteredProducts.length > 0
+          ? state.filteredProducts
+          : state.searchResults;
+
+      list.sort((a, b) => {
+        if (ascending) {
+          return a[sortBy] - b[sortBy];
+        }
+        return b[sortBy] - a[sortBy];
+      });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -434,4 +450,5 @@ export const {
   clearFilters,
   clearSearchedProducts,
   clearFilteredProduct,
+  sortProducts,
 } = productSlice.actions;

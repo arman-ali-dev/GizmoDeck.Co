@@ -70,11 +70,12 @@ const Product = () => {
     const value = e.target.value;
     setSort(value);
 
-    if (value === "price_low") {
-      dispatch(sortProducts({ sortBy: "sellingPrice", ascending: true }));
-    } else {
-      dispatch(sortProducts({ sortBy: "sellingPrice", ascending: false }));
-    }
+    dispatch(
+      sortProducts({
+        sortBy: "sellingPrice",
+        ascending: value === "price_low",
+      })
+    );
   };
 
   // Fetch filters based on first product's categoryId
