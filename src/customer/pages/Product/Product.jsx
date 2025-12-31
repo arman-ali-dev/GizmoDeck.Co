@@ -106,9 +106,11 @@ const Product = () => {
   const endIndex = startIndex + pageSize;
   const paginatedProducts = productsToShow.slice(startIndex, endIndex);
 
+  const isLoading = loadingSearch || loadingFilters;
+
   return (
     <div className="-z-10 pt-10 lg:px-14 px-4">
-      {loadingSearch ? (
+      {isLoading ? (
         <CenterLoader />
       ) : query && searchResults?.length === 0 ? (
         <NoResults query={query} />
