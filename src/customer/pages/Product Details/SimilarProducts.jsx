@@ -3,6 +3,10 @@ import SimilarProductCard from "./SimilarProductCard";
 import { useSelector } from "react-redux";
 import { Skeleton } from "@mui/material";
 import ProductCard from "../Home/Product/ProductCard";
+import { Swiper } from "swiper/types";
+import { Autoplay, Navigation } from "swiper/modules";
+import { SwiperSlide } from "swiper/react";
+import SkeletonCard from "../Home/Product/SkeletonCard";
 
 const SimilarProduct = () => {
   const { similarProducts, loadingSimilarProducts } = useSelector(
@@ -11,14 +15,39 @@ const SimilarProduct = () => {
 
   return (
     <>
-      <div className="grid xl:grid-cols-5 md:grid-cols-4 grid-cols-2 justify-between gap-4 lg:gap-y-8">
-        {loadingSimilarProducts
-          ? Array.from({ length: 10 }).map((_, i) => (
-              <SimilarProductSkeleton key={i} />
+      <div className="grid xl:grid-cols-3 md:grid-cols-4 grid-cols-2 justify-between gap-4 lg:gap-y-8">
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          spaceBetween={10}
+          slidesPerView={1}
+          navigation
+          autoplay={{ delay: 3000 }}
+          breakpoints={{
+            0: { slidesPerView: 1.6 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3.5, spaceBetween: 30 },
+          }}
+        >
+          {loadingBestSeller ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <SwiperSlide key={i}>
+                <SkeletonCard />
+              </SwiperSlide>
             ))
-          : similarProducts?.map((product) => (
-              <ProductCard key={product?.id} product={product} />
-            ))}
+          ) : errorBestSeller ? (
+            <SwiperSlide>
+              <p className="text-red-500 text-center">
+                Failed to load products
+              </p>
+            </SwiperSlide>
+          ) : (
+            firstSliderProducts?.map((p) => (
+              <SwiperSlide key={p.id}>
+                <ProductCard product={p} />
+              </SwiperSlide>
+            ))
+          )}
+        </Swiper>
       </div>
     </>
   );
