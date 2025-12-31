@@ -9,9 +9,8 @@ import { SwiperSlide } from "swiper/react";
 import SkeletonCard from "../Home/Product/SkeletonCard";
 
 const SimilarProduct = () => {
-  const { similarProducts, loadingSimilarProducts } = useSelector(
-    (state) => state.product
-  );
+  const { similarProducts, loadingSimilarProducts, errorSimilarProducts } =
+    useSelector((state) => state.product);
 
   return (
     <>
@@ -28,20 +27,20 @@ const SimilarProduct = () => {
             1024: { slidesPerView: 3.5, spaceBetween: 30 },
           }}
         >
-          {loadingBestSeller ? (
+          {loadingSimilarProducts ? (
             Array.from({ length: 4 }).map((_, i) => (
               <SwiperSlide key={i}>
                 <SkeletonCard />
               </SwiperSlide>
             ))
-          ) : errorBestSeller ? (
+          ) : errorSimilarProducts ? (
             <SwiperSlide>
               <p className="text-red-500 text-center">
                 Failed to load products
               </p>
             </SwiperSlide>
           ) : (
-            firstSliderProducts?.map((p) => (
+            similarProducts?.map((p) => (
               <SwiperSlide key={p.id}>
                 <ProductCard product={p} />
               </SwiperSlide>
