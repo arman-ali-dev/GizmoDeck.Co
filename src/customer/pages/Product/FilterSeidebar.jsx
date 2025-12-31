@@ -8,6 +8,7 @@ import { Box, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  applyFilters,
   clearFilteredProduct,
   filterProducts,
 } from "../../../store/customer/productSlice";
@@ -97,6 +98,7 @@ const FilterSidebar = ({ showSidebar, setShowSidebar }) => {
   useEffect(() => {
     if (filters) {
       dispatch(filterProducts(selectedFilters));
+      dispatch(applyFilters(selectedFilters));
     }
     console.log("ye chala");
 

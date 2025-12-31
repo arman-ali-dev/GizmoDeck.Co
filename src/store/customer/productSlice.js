@@ -439,4 +439,5 @@ export const {
   clearFilters,
   clearSearchedProducts,
   clearFilteredProduct,
+  applyFilters,
 } = productSlice.actions;

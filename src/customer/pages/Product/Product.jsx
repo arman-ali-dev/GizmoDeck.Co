@@ -92,14 +92,13 @@ const Product = () => {
   }, [searchResults]);
 
   // FILTER
-  const { filteredProducts } = useSelector((state) => state.product);
+  const { filteredProducts, isFilterApplied } = useSelector(
+    (state) => state.product
+  );
 
   console.log(filteredProducts, loadingSearch, loadingFilters);
 
-  const productsToShow =
-    filteredProducts && filteredProducts.length > 0
-      ? filteredProducts
-      : searchResults || [];
+  const productsToShow = isFilterApplied ? filteredProducts : searchResults;
 
   const totalPages = Math.ceil(productsToShow.length / pageSize);
   const startIndex = (page - 1) * pageSize;
