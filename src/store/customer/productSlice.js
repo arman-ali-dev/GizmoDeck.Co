@@ -265,18 +265,20 @@ const productSlice = createSlice({
     sortProducts: (state, action) => {
       const { sortBy, ascending } = action.payload;
 
-      // decide active list
-      const list =
+      const baseList =
         state.filteredProducts.length > 0
           ? state.filteredProducts
           : state.searchResults;
 
-      list.sort((a, b) => {
-        if (ascending) {
-          return a[sortBy] - b[sortBy];
-        }
-        return b[sortBy] - a[sortBy];
-      });
+      const sorted = [...baseList].sort((a, b) =>
+        ascending ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
+      );
+
+      if (state.filteredProducts.length > 0) {
+        state.filteredProducts = sorted;
+      } else {
+        state.searchResults = sorted;
+      }
     },
   },
   extraReducers: (builder) => {
