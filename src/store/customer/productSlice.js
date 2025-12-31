@@ -265,18 +265,19 @@ const productSlice = createSlice({
     sortProducts: (state, action) => {
       const { sortBy, ascending } = action.payload;
 
-      let sorted = [];
+      let target =
+        state.filteredProducts.length > 0
+          ? state.filteredProducts
+          : state.searchResults;
+
+      target = [...target].sort((a, b) =>
+        ascending ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
+      );
 
       if (state.filteredProducts.length > 0) {
-        sorted = [...state.filteredProducts].sort((a, b) =>
-          ascending ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
-        );
-        state.filteredProducts = sorted;
-      } else if (state.searchResults.length > 0) {
-        sorted = [...state.searchResults].sort((a, b) =>
-          ascending ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
-        );
-        state.searchResults = sorted;
+        state.filteredProducts = target;
+      } else {
+        state.searchResults = target;
       }
     },
   },

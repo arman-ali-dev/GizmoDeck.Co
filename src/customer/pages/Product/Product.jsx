@@ -98,9 +98,7 @@ const Product = () => {
   console.log(filteredProducts, loadingSearch, loadingFilters);
 
   const productsToShow =
-    filteredProducts && filteredProducts.length > 0
-      ? filteredProducts
-      : searchResults || [];
+    filteredProducts.length > 0 ? filteredProducts : searchResults;
 
   const totalPages = Math.ceil(productsToShow.length / pageSize);
   const startIndex = (page - 1) * pageSize;
