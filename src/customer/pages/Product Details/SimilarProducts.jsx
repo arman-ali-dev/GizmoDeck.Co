@@ -2,6 +2,7 @@ import React from "react";
 import SimilarProductCard from "./SimilarProductCard";
 import { useSelector } from "react-redux";
 import { Skeleton } from "@mui/material";
+import ProductCard from "../Home/Product/ProductCard";
 
 const SimilarProduct = () => {
   const { similarProducts, loadingSimilarProducts } = useSelector(
@@ -16,7 +17,7 @@ const SimilarProduct = () => {
               <SimilarProductSkeleton key={i} />
             ))
           : similarProducts?.map((product) => (
-              <SimilarProductCard key={product?.id} product={product} />
+              <ProductCard key={product?.id} product={product} />
             ))}
       </div>
     </>
