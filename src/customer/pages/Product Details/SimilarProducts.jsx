@@ -1,13 +1,13 @@
 import React from "react";
-import SimilarProductCard from "./SimilarProductCard";
 import { useSelector } from "react-redux";
 import { Skeleton } from "@mui/material";
 import ProductCard from "../Home/Product/ProductCard";
-import { Swiper } from "swiper/types";
-import { Autoplay, Navigation } from "swiper/modules";
-import { SwiperSlide } from "swiper/react";
 import SkeletonCard from "../Home/Product/SkeletonCard";
-
+import { Navigation, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const SimilarProduct = () => {
   const { similarProducts, loadingSimilarProducts, errorSimilarProducts } =
     useSelector((state) => state.product);
