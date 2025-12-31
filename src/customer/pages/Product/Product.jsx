@@ -97,10 +97,9 @@ const Product = () => {
   console.log(filteredProducts, loadingSearch, loadingFilters);
 
   const productsToShow =
-    filteredProducts.length > 0 &&
-    filteredProducts.length !== searchResults.length
+    filteredProducts && filteredProducts.length > 0
       ? filteredProducts
-      : searchResults;
+      : searchResults || [];
 
   const totalPages = Math.ceil(productsToShow.length / pageSize);
   const startIndex = (page - 1) * pageSize;
@@ -111,7 +110,7 @@ const Product = () => {
 
   return (
     <div className="-z-10 pt-10 lg:px-14 px-4">
-      {isLoading ? (
+      {loadingFilters ? (
         <CenterLoader />
       ) : query && searchResults?.length === 0 ? (
         <NoResults query={query} />
