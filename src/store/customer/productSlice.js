@@ -125,25 +125,6 @@ export const searchProducts = createAsyncThunk(
   }
 );
 
-export const sortProducts = createAsyncThunk(
-  "products/sortProducts",
-  async ({ sortBy, ascending }, { rejectWithValue }) => {
-    try {
-      const token = localStorage.getItem("jwt");
-      const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/sort?sortBy=${sortBy}&ascending=${ascending}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-
-      return data;
-    } catch (err) {
-      return rejectWithValue(err.response?.data || err.message);
-    }
-  }
-);
-
 export const fetchFilters = createAsyncThunk(
   "products/fetchFilters",
   async (categoryId, { rejectWithValue }) => {
@@ -383,18 +364,6 @@ const productSlice = createSlice({
       .addCase(searchProducts.rejected, (state, action) => {
         state.loadingSearch = false;
         state.errorSearch = action.payload;
-      })
-
-      // Sort Products
-      .addCase(sortProducts.pending, (state) => {
-        state.loadingSearch = true;
-      })
-      .addCase(sortProducts.fulfilled, (state, action) => {
-        state.loadingSearch = false;
-        state.searchResults = action.payload;
-      })
-      .addCase(sortProducts.rejected, (state, action) => {
-        state.loadingSearch = false;
       })
 
       // Fetch Filters
