@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 const SimilarProduct = () => {
   const { similarProducts, loadingSimilarProducts, errorSimilarProducts } =
     useSelector((state) => state.product);
-
+      
   return (
     <>
       <div className="grid xl:grid-cols-3 md:grid-cols-4 grid-cols-2 justify-between gap-4 lg:gap-y-8">

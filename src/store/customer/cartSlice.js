@@ -9,7 +9,7 @@ export const addToCart = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        "https://gizmodeckco-server-production.up.railway.app/api/carts/items/add",
+        "https://gizmodeck-co-server2.onrender.com/api/carts/items/add",
         productData,
         {
           headers: {
@@ -33,7 +33,7 @@ export const fetchCart = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        "https://gizmodeckco-server-production.up.railway.app/api/carts",
+        "https://gizmodeck-co-server2.onrender.com/api/carts",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -56,7 +56,7 @@ export const removeCartItem = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const res = await axios.delete(
-        `https://gizmodeckco-server-production.up.railway.app/api/carts/items/remove/${cartItemId}`,
+        `https://gizmodeck-co-server2.onrender.com/api/carts/items/remove/${cartItemId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -80,7 +80,7 @@ export const updateCartQuantity = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.put(
-        `https://gizmodeckco-server-production.up.railway.app/api/carts/item/${itemId}/quantity?quantity=${quantity}`,
+        `https://gizmodeck-co-server2.onrender.com/api/carts/item/${itemId}/quantity?quantity=${quantity}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -105,7 +105,7 @@ export const applyCoupon = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        `https://gizmodeckco-server-production.up.railway.app/api/coupons/apply-coupon?code=${couponCode}`,
+        `https://gizmodeck-co-server2.onrender.com/api/coupons/apply-coupon?code=${couponCode}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

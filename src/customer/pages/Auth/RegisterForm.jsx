@@ -66,7 +66,7 @@ const RegisterForm = () => {
 
       try {
         const { data } = await axios.post(
-          "https://gizmodeckco-server-production.up.railway.app/auth/signup",
+          "https://gizmodeck-co-server2.onrender.com/auth/signup",
           values
         );
 
@@ -122,7 +122,7 @@ const RegisterForm = () => {
       setResendTimer(60);
 
       const res = await axios.post(
-        "https://gizmodeckco-server-production.up.railway.app/auth/send-otp",
+        "https://gizmodeck-co-server2.onrender.com/auth/send-otp",
         {
           email: formik.values.email,
           role: formik.values.role,

@@ -7,7 +7,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "https://gizmodeckco-server-production.up.railway.app/api/products/all",
+        "https://gizmodeck-co-server2.onrender.com/api/products/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -29,7 +29,7 @@ export const fetchFeaturedProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "https://gizmodeckco-server-production.up.railway.app/api/products/all/featured"
+        "https://gizmodeck-co-server2.onrender.com/api/products/all/featured"
       );
 
       console.log("products data", data);
@@ -46,7 +46,7 @@ export const fetchBestSellerProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        "https://gizmodeckco-server-production.up.railway.app/api/products/all/best-seller"
+        "https://gizmodeck-co-server2.onrender.com/api/products/all/best-seller"
       );
 
       return data;
@@ -63,7 +63,7 @@ export const fetchProductDetails = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/${productId}`,
+        `https://gizmodeck-co-server2.onrender.com/api/products/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -84,7 +84,7 @@ export const fetchSimilarProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/${productId}/similar`,
+        `https://gizmodeck-co-server2.onrender.com/api/products/${productId}/similar`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export const searchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/search?keyword=${query}`,
+        `https://gizmodeck-co-server2.onrender.com/api/products/search?keyword=${query}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -131,7 +131,7 @@ export const fetchFilters = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/filters?categoryId=${categoryId}`,
+        `https://gizmodeck-co-server2.onrender.com/api/products/filters?categoryId=${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -155,7 +155,7 @@ export const filterProducts = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.post(
-        "https://gizmodeckco-server-production.up.railway.app/api/products/filter",
+        "https://gizmodeck-co-server2.onrender.com/api/products/filter",
         filters,
         {
           headers: {
@@ -182,7 +182,7 @@ export const fetchProductsByCategory = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const { data } = await axios.get(
-        `https://gizmodeckco-server-production.up.railway.app/api/products/categories/${categoryId}`,
+        `https://gizmodeck-co-server2.onrender.com/api/products/categories/${categoryId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

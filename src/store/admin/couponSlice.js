@@ -8,7 +8,7 @@ export const fetchCoupons = createAsyncThunk(
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.get(
-        "https://gizmodeckco-server-production.up.railway.app/api/admin/coupons/all",
+        "https://gizmodeck-co-server2.onrender.com/api/admin/coupons/all",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -31,7 +31,7 @@ export const deleteCoupon = createAsyncThunk(
       const token = localStorage.getItem("jwt");
 
       const res = await axios.delete(
-        `https://gizmodeckco-server-production.up.railway.app/api/admin/coupons/delete/${id}`,
+        `https://gizmodeck-co-server2.onrender.com/api/admin/coupons/delete/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

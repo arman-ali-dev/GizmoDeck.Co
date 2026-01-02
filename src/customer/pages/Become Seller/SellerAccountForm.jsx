@@ -199,7 +199,7 @@ const SellerAccountForm = () => {
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        "https://gizmodeckco-server-production.up.railway.app/api/seller/apply",
+        "https://gizmodeck-co-server2.onrender.com/api/seller/apply",
         formik.values,
         {
           headers: {
@@ -225,7 +225,7 @@ const SellerAccountForm = () => {
     try {
       const token = localStorage.getItem("jwt");
       const { data } = await axios.post(
-        `https://gizmodeckco-server-production.up.railway.app/api/seller/verify-otp?otp=${formik.values.otp}`,
+        `https://gizmodeck-co-server2.onrender.com/api/seller/verify-otp?otp=${formik.values.otp}`,
         {},
         {
           headers: {

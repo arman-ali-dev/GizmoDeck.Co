@@ -68,7 +68,7 @@ const AddCouponCode = () => {
         };
 
         const res = await axios.post(
-          "https://gizmodeckco-server-production.up.railway.app/api/admin/coupons/create",
+          "https://gizmodeck-co-server2.onrender.com/api/admin/coupons/create",
           payload,
           {
             headers: {

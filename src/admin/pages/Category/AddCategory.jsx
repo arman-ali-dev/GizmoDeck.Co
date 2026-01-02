@@ -58,7 +58,7 @@ const AddCategory = () => {
         };
 
         const res = await axios.post(
-          "https://gizmodeckco-server-production.up.railway.app/api/admin/categories",
+          "https://gizmodeck-co-server2.onrender.com/api/admin/categories",
           payload,
           {
             headers: {
